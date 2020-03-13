@@ -1,0 +1,57 @@
+<!-- <mat-toolbar color="primary" class="mat-elevation-z6">
+    <span><mat-icon>eco</mat-icon>Vorlesungsplaner</span>
+
+    <div class="spacer"></div>
+
+    <a mat-button>Dashboard</a>
+    <a mat-button>Termin bearbeiten</a>
+    <a mat-button>Plan</a>
+    <a mat-raised-button color="accent">Log Out</a>
+
+</mat-toolbar> -->
+
+
+<mat-toolbar id="mainToolbar" color="primary">
+    <mat-icon (click)="onToolbarMenuToggle()" id="toolbarMenu">view_headline</mat-icon>
+    Vorlesungsplaner
+    <span class="toolbar-spacer"></span>
+    <mat-icon class="toolbar-icon">exit_to_app</mat-icon>
+</mat-toolbar>
+
+<mat-sidenav-container id="sidenavContainer" fullscreen>
+    <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen"
+        opened>
+
+        <mat-list id="menus">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="avatar"></div>
+
+                    <mat-card-title>Dozentenname</mat-card-title>
+                    <mat-card-subtitle>Dozent</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <mat-list-item>
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>dashboard</mat-icon>
+                    Dashboard
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>calendar_today</mat-icon>
+                    Kalender
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>settings_application</mat-icon>
+                    Termine bearbeiten
+                </button>
+            </mat-list-item>
+
+        </mat-list>
+    </mat-sidenav>
+</mat-sidenav-container>
