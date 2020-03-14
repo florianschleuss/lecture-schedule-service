@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +13,12 @@ export class NavbarComponent implements OnInit {
     isMenuOpen = true;
     contentMargin = 240;
 
-  constructor() { }
+    isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
+    constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
   }

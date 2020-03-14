@@ -1,4 +1,4 @@
-/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
 body {
     font-family: Roboto, Arial, sans-serif;
@@ -53,6 +53,7 @@ body {
 
 #sidenav .menu-item:hover {
   background: #eee;
+  color: black;
 }
 #sidenav .menu-item mat-icon {
     margin-right: 20px;

@@ -1,33 +1,76 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { AppRoutingModule } from './app-routing.module';
-    MatCardModule
-    import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatBadgeModule, MatCardModule,  } from '@angular/material';
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NavbarComponent } from "./navbar/navbar.component";
+import { LayoutModule } from "@angular/cdk/layout";
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatGridListModule,
+  MatCardModule,
+  MatMenuModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatInputModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatCheckboxModule,
+  MatNativeDateModule,
+  MatDatepickerModule
+} from "@angular/material";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { CalendarComponent } from "./calendar/calendar.component";
+import { FormsComponent } from "./forms/forms.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
-
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
+const routes: Routes = [
+  { path: "", component: DashboardComponent },
+  { path: "calendar", component: CalendarComponent },
+  { path: "forms", component: FormsComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    DashboardComponent,
+    CalendarComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    LayoutModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule,
     MatSidenavModule,
+    MatIconModule,
     MatListModule,
-    MatBadgeModule,
-    MatCardModule
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    AppRoutingModule,
+    RouterModule.forRoot(routes),
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
