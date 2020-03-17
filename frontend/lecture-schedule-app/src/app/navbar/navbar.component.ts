@@ -1,37 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, OnInit, Input } from "@angular/core";
+import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { ApiClientService } from '../api-client.service'
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
+  isMenuOpen = true;
+  contentMargin = 240;
 
-    isMenuOpen = true;
-    contentMargin = 240;
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(result => result.matches));
 
-    isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
+  constructor(private breakpointObserver: BreakpointObserver, private apiClient: ApiClientService) {}
 
-    constructor(private breakpointObserver: BreakpointObserver) {}
+  @Input()
+  authentificated: boolean;
+  userId: string;
 
   ngOnInit() {
+    this.authentificated = this.apiClient.ifAuthenticated();
   }
 
   onToolbarMenuToggle() {
-    console.log('On toolbar toggled', this.isMenuOpen);
+    console.log("On toolbar toggled", this.isMenuOpen);
     this.isMenuOpen = !this.isMenuOpen;
 
-    if(!this.isMenuOpen) {
+    if (!this.isMenuOpen) {
       this.contentMargin = 70;
     } else {
       this.contentMargin = 240;
     }
   }
-
 }

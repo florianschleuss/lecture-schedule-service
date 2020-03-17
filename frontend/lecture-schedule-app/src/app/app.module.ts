@@ -1,10 +1,12 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NavbarComponent } from "./navbar/navbar.component";
+import { FormControl, Validators } from '@angular/forms';
 import { LayoutModule } from "@angular/cdk/layout";
 import {
   MatToolbarModule,
@@ -23,19 +25,22 @@ import {
   MatRadioModule,
   MatCheckboxModule,
   MatNativeDateModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  MatTabsModule,
+  MatFormFieldModule
 } from "@angular/material";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { CalendarComponent } from "./calendar/calendar.component";
 import { FormsComponent } from "./forms/forms.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from './login/login.component';
 
-const routes: Routes = [
-  { path: "", component: DashboardComponent },
-  { path: "calendar", component: CalendarComponent },
-  { path: "forms", component: FormsComponent }
-];
+// const routes: Routes = [
+//   { path: "dashboard", outlet: "mainContainer", component: DashboardComponent },
+//   { path: "calendar", component: CalendarComponent },
+//   { path: "forms", component: FormsComponent }
+// ];
 
 @NgModule({
   declarations: [
@@ -43,7 +48,8 @@ const routes: Routes = [
     NavbarComponent,
     DashboardComponent,
     CalendarComponent,
-    FormsComponent
+    FormsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,7 @@ const routes: Routes = [
     MatCardModule,
     MatMenuModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
+    RouterModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -68,7 +74,10 @@ const routes: Routes = [
     MatCheckboxModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

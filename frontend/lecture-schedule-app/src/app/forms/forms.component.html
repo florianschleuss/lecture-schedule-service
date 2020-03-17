@@ -29,16 +29,6 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <textarea matInput placeholder="Addresse" formControlName="address"></textarea>
-              <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
-                Address is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
 
         <div class="row" *ngIf="hasUnitNumber">
           <div class="col">
@@ -56,14 +46,14 @@
         <br>
         <div class="row">
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Start der Vorlesung">
+                <input matInput [matDatepicker]="picker" placeholder="Prüfungstermin">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="primary" type="submit">Speichern</button>
       </mat-card-actions>
     </mat-card>
   </form>

@@ -5,65 +5,46 @@
     <mat-icon class="toolbar-icon">exit_to_app</mat-icon>
 </mat-toolbar>
 
-
-
 <mat-sidenav-container id="sidenavContainer" fullscreen>
-
-
-    <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="!(isHandset$ | async)">
-      <mat-toolbar>Menu</mat-toolbar>
-      <mat-nav-list>
-        <a mat-list-item routerLink="" [routerLinkActive]="'is-active'">Dashboard</a>
-        <a mat-list-item routerLink="tables" [routerLinkActive]="'is-active'">Tables</a>
-        <a mat-list-item routerLink="forms" [routerLinkActive]="'is-active'">Forms</a>
-      </mat-nav-list>
-    </mat-sidenav> -->
-
     <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen"
-    opened>
-
-    <mat-list id="menus">
-        <mat-card>
-            <mat-card-header>
-                <div mat-card-avatar class="avatar"></div>
-
-                <mat-card-title>Dozentenname</mat-card-title>
-                <mat-card-subtitle>Dozent</mat-card-subtitle>
-            </mat-card-header>
-        </mat-card>
-        <mat-list-item routerLink="" [routerLinkActive]="'is-active'">
-            <button class="menu-item" mat-flat-button>
-                <mat-icon>dashboard</mat-icon>
-                Dashboard
-            </button>
-        </mat-list-item>
-
-        <mat-list-item routerLink="calendar" [routerLinkActive]="'is-active'">
-            <button class="menu-item" mat-flat-button>
-                <mat-icon>calendar_today</mat-icon>
-                Kalender
-            </button>
-        </mat-list-item>
-
-        <mat-list-item routerLink="forms" [routerLinkActive]="'is-active'">
-            <button class="menu-item" mat-flat-button>
-                <mat-icon>settings_application</mat-icon>
-                Termine bearbeiten
-            </button>
-        </mat-list-item>
-
-    </mat-list>
-</mat-sidenav>
-
+        opened>
+        <mat-list id="menus">
+            <mat-card  *ngIf="authentificated">
+                <mat-card-header>
+                    <div mat-card-avatar class="avatar"></div>
+                    <mat-card-title>Dozentenname</mat-card-title>
+                    <mat-card-subtitle>Dozent</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <mat-list-item routerLink="dashboard" [routerLinkActive]="'is-active'" *ngIf="authentificated">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>dashboard</mat-icon>
+                    Dashboard
+                </button>
+            </mat-list-item>
+            <mat-list-item routerLink="calendar" [routerLinkActive]="'is-active'" *ngIf="authentificated">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>calendar_today</mat-icon>
+                    Kalender
+                </button>
+            </mat-list-item>
+            <mat-list-item routerLink="forms" [routerLinkActive]="'is-active'" *ngIf="authentificated">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>settings_application</mat-icon>
+                    Termine bearbeiten
+                </button>
+            </mat-list-item>
+            <mat-list-item routerLink="login" [routerLinkActive]="'is-active'" *ngIf="!authentificated">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>dashboard</mat-icon>
+                    Login
+                </button>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
 
     <mat-sidenav-content>
-
-<!-- Add Content Here -->
-<div style="padding: 15px;">
-  <router-outlet></router-outlet>
-</div>
-</mat-sidenav-content>
+        <!-- Add Content Here -->
+            <router-outlet></router-outlet>
+    </mat-sidenav-content>
 </mat-sidenav-container>

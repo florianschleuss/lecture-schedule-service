@@ -1,0 +1,45 @@
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
+
+.mat-tab-header {
+    border-bottom: 0px;
+}
+h1 {
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+}
+.mat-tab-label .mat-tab-label-content {
+    font-size: 25px;
+}
+.align-center {
+    width: 50%;
+    margin: 40px auto;
+    padding: 20px;
+    height: 100%;
+}
+.mat-tab-body-content {
+    overflow: hidden;
+}
+.mat-tab-labels {
+    justify-content: center;
+   /* align items in Main Axis */
+}
+.mat-raised-button {
+    padding: 5px;
+    font-size: 22px;
+}
+@media (max-width: 700px) {
+    .align-center {
+        width: 60%;
+   }
+}
+@media (max-width: 575px) {
+    .align-center {
+        width: 80%;
+   }
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}

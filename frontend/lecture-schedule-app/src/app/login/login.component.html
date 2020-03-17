@@ -1,0 +1,33 @@
+<div class="align-center">
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Login">
+            <div class="example-container">
+                <mat-form-field>
+                    <input #emailLog matInput placeholder="E-Mail" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input #passwordLog matInput placeholder="Passwort"/>
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Register">
+            <div class="example-container">
+                <mat-form-field>
+                    <input #firstName matInput placeholder="Vorname" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input #lastName matInput placeholder="Nachname" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input #emailReg matInput placeholder="Enter your email" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <input #passwordReg matInput placeholder="Enter your password" />
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="registerUser(firstName.value, lastName.value, emailReg.value, passwordReg.value)">Register</button>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
