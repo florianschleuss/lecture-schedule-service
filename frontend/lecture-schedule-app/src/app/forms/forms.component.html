@@ -1,20 +1,20 @@
-<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="lectureForm" novalidate (ngSubmit)="onSubmit(lectureForm)">
     <mat-card class="card">
         <mat-card-header>
-            <mat-card-title>Neue Vorlesung</mat-card-title>
+            <mat-card-title>{{ title }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <div class="row">
                 <div class="col">
                     <mat-form-field class="full-width">
-                        <input matInput placeholder="Name der Vorlesung" formControlName="vorlesung" />
+                        <input matInput placeholder="Name der Vorlesung *" formControlName="lecture" [(ngModel)]=name/>
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <mat-form-field class="full-width">
-                        <input matInput placeholder="Kursname" formControlName="kursname" />
+                        <input matInput placeholder="Kursname *" formControlName="course" [(ngModel)]=course/>
                     </mat-form-field>
                 </div>
             </div>
@@ -22,14 +22,14 @@
                 <div class="col">
                     <div class="row">
                         <mat-form-field>
-                            <input matInput placeholder="Prüfungsform" />
+                            <input matInput placeholder="Prüfungsform" formControlName="exam" [(ngModel)]=exam/>
                         </mat-form-field>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <mat-form-field>
-                    <input matInput [matDatepicker]="picker" placeholder="Prüfungstermin" />
+                    <input matInput [matDatepicker]="picker" placeholder="Prüfungstermin" formControlName="examDate"/>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -44,5 +44,3 @@
         </mat-card-actions>
     </mat-card>
 </form>
-
-<app-lecture-table></app-lecture-table>

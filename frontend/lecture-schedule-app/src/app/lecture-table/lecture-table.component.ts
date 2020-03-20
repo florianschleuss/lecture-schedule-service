@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Router } from '@angular/router';
+
+import { ApiClientService } from '../api-client.service';
+import { UserService } from '../user.service';
+
 
 /**
  * @title Table with expandable rows
@@ -16,92 +21,27 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         ]),
     ],
 })
+
+
+
 export class LectureTableComponent {
-    dataSource = ELEMENT_DATA;
-    columnsToDisplay = ['Vorlesung', 'Kurs', 'Prüfungsform'];
-    expandedElement: LectureElement | null;
+    protected dataSource: JSON = JSON.parse('[]')
+    protected columnNames = {name: 'Vorlesung', course: 'Kurs', exam: 'Prüfung'}
+    protected columnsToDisplay = ['name', 'course', 'exam'];
+
+    constructor(private apiService: ApiClientService, private userService: UserService,private router: Router) {}
+
+    ngOnInit() {
+        this.apiService.getLectures('meinLiblingsUser').subscribe(data => {
+            this.dataSource = data            
+        });
+    }
+
+    onItemClick(element: JSON):void{
+        this.userService.setLectureId(element['lecture-id'])
+        this.router.navigateByUrl("/forms");
+    }
+
+
 }
 
-export interface LectureElement {
-    Vorlesung: string;
-    Kurs: string;
-    Prüfungsform: string;
-}
-
-const ELEMENT_DATA: LectureElement[] = [
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-    {
-        Vorlesung: 'Einführung WI',
-        Kurs: "WWI2018H",
-        Prüfungsform: 'Klausur',
-    },
-];

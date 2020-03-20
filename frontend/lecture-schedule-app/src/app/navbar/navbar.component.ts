@@ -13,6 +13,8 @@ import { ApiClientService } from '../api-client.service'
 export class NavbarComponent implements OnInit {
   isMenuOpen = true;
   contentMargin = 240;
+  protected name: string;
+  protected email: string;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -33,7 +35,6 @@ export class NavbarComponent implements OnInit {
   }
 
   onToolbarMenuToggle() {
-    console.log("On toolbar toggled", this.isMenuOpen);
     this.isMenuOpen = !this.isMenuOpen;
 
     if (!this.isMenuOpen) {

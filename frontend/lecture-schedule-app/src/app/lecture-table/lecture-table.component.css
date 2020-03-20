@@ -12,13 +12,13 @@ table {
   }
 
   tr.example-element-row:not(.example-expanded-row):hover {
-    background: #eee;
+    background: #555;
     color: black;
     cursor: pointer;
   }
 
   tr.example-element-row:not(.example-expanded-row):active {
-    background: #efefef;
+    background: #555;
   }
 
   .example-element-row td {
