@@ -7,7 +7,7 @@ import { catchError } from "rxjs/operators";
     providedIn: "root"
 })
 export class ApiClientService {
-    authentificated: boolean = true;
+    authentificated: boolean = false;
 
     private baseUrl = "http://data.home-webserver.de:3010/api/v1"; // URL to web api
 
@@ -33,22 +33,20 @@ export class ApiClientService {
         });
     }
 
-    ifAuthenticated(): boolean {
+    getAuthenticated(): boolean {
         return this.authentificated;
+    }
+
+    setAuthenticated(state: boolean){
+        this.authentificated = state        
     }
 
     getUser(userId: string): Observable<JSON> {
         return this.http.get<JSON>(this.baseUrl.concat("/users/").concat(userId));
     }
 
-    authUser(email: string, password: string): Observable<string> {
-        this.authentificated = true;
-        return this.http.post<string>(this.baseUrl.concat("/users"), {
-            "first-name": "firstName",
-            "last-name": "lastName",
-            "e-mail": email,
-            password: password
-        });
+    authUser(email: string, password: string): Observable<JSON> {
+        return this.http.get<JSON>(this.baseUrl.concat("/authentification"));
     }
 
     addUser(
@@ -56,9 +54,9 @@ export class ApiClientService {
         lastName: string,
         email: string,
         password: string
-    ): Observable<string> {
+    ): Observable<JSON> {
         this.authentificated = true;
-        return this.http.post<string>(this.baseUrl.concat("/users"), {
+        return this.http.post<JSON>(this.baseUrl.concat("/users"), {
             "first-name": firstName,
             "last-name": lastName,
             "e-mail": email,

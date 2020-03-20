@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { Router } from '@angular/router';
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { ApiClientService } from '../api-client.service'
@@ -17,14 +18,18 @@ export class NavbarComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
 
-  constructor(private breakpointObserver: BreakpointObserver, private apiClient: ApiClientService) {}
-
-  @Input()
-  authentificated: boolean;
-  userId: string;
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private apiClient: ApiClientService) {}
 
   ngOnInit() {
-    this.authentificated = this.apiClient.ifAuthenticated();
+  }
+
+  logout(): void{
+    this.router.navigateByUrl('/login')
+    this.apiClient.setAuthenticated(false)
+  }
+
+  ifAuthenticated(): boolean{
+    return this.apiClient.getAuthenticated()
   }
 
   onToolbarMenuToggle() {
