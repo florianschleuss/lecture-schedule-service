@@ -35,6 +35,7 @@ import { CalendarComponent } from "./calendar/calendar.component";
 import { FormsComponent } from "./forms/forms.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login.component';
+import { LectureTableComponent } from './lecture-table/lecture-table.component';
 
 // const routes: Routes = [
 //   { path: "dashboard", outlet: "mainContainer", component: DashboardComponent },
@@ -49,7 +50,8 @@ import { LoginComponent } from './login/login.component';
     DashboardComponent,
     CalendarComponent,
     FormsComponent,
-    LoginComponent
+    LoginComponent,
+    LectureTableComponent
   ],
   imports: [
     BrowserModule,
