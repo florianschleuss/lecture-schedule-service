@@ -18,30 +18,90 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class LectureTableComponent {
     dataSource = ELEMENT_DATA;
-    columnsToDisplay = ['Vorlesung', 'Kurs', 'Prüfung'];
-    expandedElement: PeriodicElement | null;
+    columnsToDisplay = ['Vorlesung', 'Kurs', 'Prüfungsform'];
+    expandedElement: LectureElement | null;
 }
 
-export interface PeriodicElement {
+export interface LectureElement {
     Vorlesung: string;
     Kurs: string;
-    Prüfung: string;
-    description: string;
+    Prüfungsform: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: LectureElement[] = [
     {
         Vorlesung: 'Einführung WI',
         Kurs: "WWI2018H",
-        Prüfung: 'Klausur',
-        description: `Hydrogen is a chemical element with symbol H and atomic number 1. With a standard
-        atomic weight of 1.008, hydrogen is the lightest element on the periodic table.`
-    }, {
-        Vorlesung: 'Mathematik II',
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
         Kurs: "WWI2018H",
-        Prüfung: 'Klausur',
-        description: `Helium is a chemical element with symbol He and atomic number 2. It is a
-        colorless, odorless, tasteless, non-toxic, inert, monatomic gas, the first in the noble gas
-        group in the periodic table. Its boiling point is the lowest among all the elements.`
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
+    },
+    {
+        Vorlesung: 'Einführung WI',
+        Kurs: "WWI2018H",
+        Prüfungsform: 'Klausur',
     },
 ];

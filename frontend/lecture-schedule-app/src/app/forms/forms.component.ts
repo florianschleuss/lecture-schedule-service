@@ -37,7 +37,6 @@ constructor(private fb: FormBuilder) {}
 export class TableExpandableRowsExample {
     dataSource = ELEMENT_DATA;
     columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
-    expandedElement: PeriodicElement | null;
   }
 
 export interface PeriodicElement {
