@@ -28,7 +28,11 @@ import {
     MatDatepickerModule,
     MatTabsModule,
     MatFormFieldModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatBadgeModule,
+    MatStepperModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule
 } from "@angular/material";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -37,6 +41,7 @@ import { FormsComponent } from "./forms/forms.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./login/login.component";
 import { LectureTableComponent } from "./lecture-table/lecture-table.component";
+import { DatesTableComponent } from './dates-table/dates-table.component';
 
 // const routes: Routes = [
 //   { path: "dashboard", outlet: "mainContainer", component: DashboardComponent },
@@ -52,7 +57,8 @@ import { LectureTableComponent } from "./lecture-table/lecture-table.component";
         CalendarComponent,
         FormsComponent,
         LoginComponent,
-        LectureTableComponent
+        LectureTableComponent,
+        DatesTableComponent
     ],
     imports: [
         BrowserModule,
@@ -81,7 +87,11 @@ import { LectureTableComponent } from "./lecture-table/lecture-table.component";
         MatTabsModule,
         MatFormFieldModule,
         HttpClientModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatBadgeModule,
+        MatStepperModule,
+        MatTooltipModule,
+        MatProgressSpinnerModule
     ],
     providers: [],
     bootstrap: [AppComponent]

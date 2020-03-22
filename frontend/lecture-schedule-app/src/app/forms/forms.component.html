@@ -18,14 +18,14 @@
                     </mat-form-field>
                 </div>
             </div>
-            <mat-form-field>
+            <!-- <mat-form-field>
                 <input matInput placeholder="Prüfungsform" formControlName="exam" [(ngModel)]=exam />
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-form-field>
                 <mat-label>Prüfungsform</mat-label>
-                <mat-select>
+                <mat-select formControlName="exam" [(ngModel)]=exam>
                     <mat-option *ngFor="let exam of exams" [value]="exam.value">
-                        {{exam.viewValue}}
+                        {{exam.value}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -34,15 +34,14 @@
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-            <br />
-            <div class="col">
-                <mat-checkbox>Keine Prüfung</mat-checkbox>
-            </div>
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="lectureForm.pristine || lectureForm.invalid" mat-raised-button color="primary"
-                type="submit" (tsSubmitIfValid)="save()">Speichern</button>
+                type="submit" >Speichern</button>
+            <button type="button" mat-icon-button color="warn" (click)="deleteLecture()" class="float" matTooltip="Vorlesung löschen"><mat-icon>delete</mat-icon></button>
             <p class="help is-success">{{success}}</p>
         </mat-card-actions>
     </mat-card>
 </form>
+
+<app-dates-table></app-dates-table>

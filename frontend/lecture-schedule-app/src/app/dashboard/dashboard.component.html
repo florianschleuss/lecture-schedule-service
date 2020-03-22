@@ -1,7 +1,7 @@
 <div class="listgrid">
     <mat-card class="example-card">
         <mat-card-header>
-            <mat-card-title>Aktuelle Vorlesungen</mat-card-title>
+            <mat-card-title matBadge="7"  matBadgePosition="above after" matBadgeOverlap="false">Aktuelle Vorlesungen</mat-card-title>
         </mat-card-header>
         <img mat-card-image src="https://i.pinimg.com/originals/9d/4d/07/9d4d07ca7d591bb3cd3d9f4df2624bbf.jpg"
             alt="Photo of a Shiba Inu" />
@@ -11,14 +11,69 @@
     </mat-card>
     <mat-card class="example-card">
         <mat-card-header>
-            <mat-card-title>Kalender</mat-card-title>
+            <mat-card-title>Aktuelle Vorlesungen</mat-card-title>
         </mat-card-header>
-        <img mat-card-image
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a9e3b944656011.581fba3dc41eb.png"
+        <mat-card-content>
+            <app-lecture-table></app-lecture-table>
+        </mat-card-content>
+        <img mat-card-image src="https://i.pinimg.com/originals/9d/4d/07/9d4d07ca7d591bb3cd3d9f4df2624bbf.jpg"
+        alt="Photo of a Shiba Inu" />
+    </mat-card>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Aktuelle Vorlesungen</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://i.pinimg.com/originals/9d/4d/07/9d4d07ca7d591bb3cd3d9f4df2624bbf.jpg"
             alt="Photo of a Shiba Inu" />
+        <mat-card-content>
+            <app-lecture-table></app-lecture-table>
+        </mat-card-content>
     </mat-card>
 </div>
 
-<!-- <!-- https://www.heibrids.berlin/static-einsteindigitalfuture/Images/Heibrids/Trenner.svg
+<!-- <div class="parent">
+    <div class="div1">
+        <mat-card class="example1">
+            <mat-card-header>
+                <mat-card-title>Dashboard</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+    <div class="div2">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Aktuelle Vorlesungen</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://i.pinimg.com/originals/9d/4d/07/9d4d07ca7d591bb3cd3d9f4df2624bbf.jpg"
+                alt="Photo of a Shiba Inu" />
+            <mat-card-content>
+                <app-lecture-table></app-lecture-table>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="div3">
+        <mat-card class="example">
+            <mat-card-header>
+                <mat-card-title>Aktuelle Vorlesungen</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://i.pinimg.com/originals/9d/4d/07/9d4d07ca7d591bb3cd3d9f4df2624bbf.jpg"
+                alt="Photo of a Shiba Inu" />
+        </mat-card>
+    </div>
+    </div> -->
 
-  https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701415995-1024x640.jpg -->
+<!--
+    <div class="grid-container">
+        <mat-grid-list cols="2" rowHeight="350px">
+          <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+            <mat-card class="dashboard-card">
+              <mat-card-header>
+                <mat-card-title matBadge="7"  matBadgePosition="above after" matBadgeOverlap="false">{{ card.title }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <app-lecture-table></app-lecture-table>
+            </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div> -->

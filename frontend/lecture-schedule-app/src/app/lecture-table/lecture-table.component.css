@@ -2,11 +2,6 @@ table {
     width: 100%;
 }
 
-.card {
-    min-width: 120px;
-    margin: 20px;
-}
-
 tr.example-detail-row {
     height: 0;
 }
@@ -23,17 +18,4 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-row td {
     border-bottom-width: 0;
-}
-
-.example-element-detail {
-    overflow: hidden;
-    display: flex;
-}
-
-.example-element-description {
-    padding: 16px;
-}
-
-.example-element-description-attribution {
-    opacity: 0.5;
 }

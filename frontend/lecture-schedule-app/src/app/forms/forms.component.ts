@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 import { ApiClientService } from '../services/api-client.service';
 import { UserService } from '../services/user.service';
 
 interface exam {
     value: string;
-    viewValue: string;
 }
 
 @Component({
@@ -18,18 +19,19 @@ export class FormsComponent implements OnInit {
     submitted = false;
 
     exams: exam[] = [
-        { value: 'Klausur', viewValue: 'Klausur' },
-        { value: 'Modulprüfung', viewValue: 'Modulprüfung' },
-        { value: 'Test', viewValue: 'Test' },
-        { value: 'Präsentation', viewValue: 'Präsentation' },
-        { value: 'Portfolio', viewValue: 'Portfolio' },
-        { value: 'Keine Prüfungsleistung', viewValue: 'Keine Prüfungsleistung' },
+        { value: 'Klausur'},
+        { value: 'Modulprüfung'},
+        { value: 'Test'},
+        { value: 'Präsentation'},
+        { value: 'Portfolio'},
+        { value: 'Keine Prüfungsleistung'},
     ];
 
-    protected title: string = 'Neue Vorlesung'
+    protected title: string = 'Neue Vorlesung anlegen'
     protected name: string = ''
     protected course: string = ''
     protected exam: string = ''
+    private lectureId: string;
     //protected examDate: string = '12/5/2021'
 
     lectureForm = this.fb.group({
@@ -39,22 +41,22 @@ export class FormsComponent implements OnInit {
         examDate: [null],
     });
 
-    constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiClientService) { }
+    constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiClientService, private router: Router) { }
 
     ngOnInit() {
         if (this.userService.getLectureId()) {
-            this.apiService.getLecture('tollerUser', this.userService.getLectureId()).subscribe(data => {
+            this.apiService.getLecture('test-user', this.userService.getLectureId()).subscribe(data => {
                 this.title = data['name']
+                this.lectureId = data['lecture-id']
                 this.name = data['name']
                 this.course = data['course']
                 this.exam = data['exam']
             })
-            this.userService.setLectureId(undefined)
         }
     }
 
     onSubmit(form: NgForm) {
-        this.apiService.addLecture('userId', form.value.lecture, form.value.course, form.value.exam).subscribe(data => {
+        this.apiService.addLecture('test-user', form.value.lecture, form.value.course, form.value.exam).subscribe(data => {
             this.title = form.value.lecture
 
             this.submitted = true;
@@ -66,11 +68,9 @@ export class FormsComponent implements OnInit {
         });
     }
 
-    success;
-
-    save() {
-        console.log('Now we can save');
-        this.success = 'Yay! We can save now!'
+    deleteLecture(): void {
+        this.apiService.remLecture('test-user', this.lectureId ? this.lectureId: '0').subscribe(data => console.log(data['message']))
+        this.router.navigateByUrl('/dashboard')
     }
 
 }

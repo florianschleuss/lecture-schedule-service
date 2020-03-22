@@ -103,6 +103,16 @@ export class ApiClientService {
         );
     }
 
+    remLecture(userId: string, lectureId: string): Observable<JSON> {
+        return this.http.delete<JSON>(
+            this.baseUrl
+                .concat("/users/")
+                .concat(userId)
+                .concat("/lectures/")
+                .concat(lectureId)
+        );
+    }
+
     getDates(userId: string, lectureId: string): Observable<JSON> {
         return this.http.get<JSON>(
             this.baseUrl

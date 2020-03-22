@@ -23,7 +23,7 @@ export class LectureTableComponent {
     constructor(private apiService: ApiClientService, private userService: UserService, private router: Router) { }
 
     ngOnInit() {
-        this.apiService.getLectures('meinLiblingsUser').subscribe(data => {
+        this.apiService.getLectures('test-user').subscribe(data => {
             this.dataSource = data
         });
     }
