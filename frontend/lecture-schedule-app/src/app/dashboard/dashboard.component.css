@@ -1,21 +1,44 @@
 .grid-container {
     margin: 20px;
-  }
+}
 
-  .dashboard-card {
+.dashboard-card {
     position: absolute;
     top: 15px;
     left: 15px;
     right: 15px;
     bottom: 15px;
-  }
+}
 
-  .more-button {
+.more-button {
     position: absolute;
     top: 5px;
     right: 10px;
-  }
+}
 
-  .dashboard-card-content {
+.dashboard-card-content {
     text-align: center;
-  }
+}
+
+.example-card {
+    max-width: 400px;
+    margin: 20px;
+}
+
+.listgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-flow: row;
+}
+
+@media only screen and (max-width: 1300px) {
+    .listgrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .listgrid {
+        grid-template-columns: 1fr;
+    }
+}

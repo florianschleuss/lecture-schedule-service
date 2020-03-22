@@ -7,40 +7,42 @@
             <div class="row">
                 <div class="col">
                     <mat-form-field class="full-width">
-                        <input matInput placeholder="Name der Vorlesung *" formControlName="lecture" [(ngModel)]=name/>
+                        <input matInput placeholder="Name der Vorlesung *" formControlName="lecture" [(ngModel)]=name />
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <mat-form-field class="full-width">
-                        <input matInput placeholder="Kursname *" formControlName="course" [(ngModel)]=course/>
+                        <input matInput placeholder="Kursname *" formControlName="course" [(ngModel)]=course />
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <mat-form-field>
-                            <input matInput placeholder="Prüfungsform" formControlName="exam" [(ngModel)]=exam/>
-                        </mat-form-field>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <mat-form-field>
-                    <input matInput [matDatepicker]="picker" placeholder="Prüfungstermin" formControlName="examDate"/>
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-            </div>
+            <mat-form-field>
+                <input matInput placeholder="Prüfungsform" formControlName="exam" [(ngModel)]=exam />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Prüfungsform</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let exam of exams" [value]="exam.value">
+                        {{exam.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Prüfungstermin" formControlName="examDate" />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
             <br />
             <div class="col">
                 <mat-checkbox>Keine Prüfung</mat-checkbox>
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit">Speichern</button>
+            <button [disabled]="lectureForm.pristine || lectureForm.invalid" mat-raised-button color="primary"
+                type="submit" (tsSubmitIfValid)="save()">Speichern</button>
+            <p class="help is-success">{{success}}</p>
         </mat-card-actions>
     </mat-card>
 </form>

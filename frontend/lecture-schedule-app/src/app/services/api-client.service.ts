@@ -38,7 +38,7 @@ export class ApiClientService {
     }
 
     setAuthenticated(state: boolean){
-        this.authentificated = state        
+        this.authentificated = state
     }
 
     getUser(userId: string): Observable<JSON> {

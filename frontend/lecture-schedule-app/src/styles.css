@@ -35,8 +35,20 @@ body {
     width: 240px
 }
 
+@media only screen and (max-width: 1300px) {
+    #sidenav .menu-close {
+        width: 0px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #sidenav .menu-close {
+        width: 0px;
+    }
+}
+
 #sidenav .avatar {
-    background-image: url('https://figment-hosting.co.uk/wp-content/uploads/2015/08/avatar-1-300x300.png');
+    background-image: url('https://www.xing.com/image/0_a_7_39fdd773a_3449201_3/raymond-bimazubute-foto.1024x1024.jpg');
     background-size: cover;
 }
 

@@ -3,43 +3,63 @@
 .mat-tab-header {
     border-bottom: 0px;
 }
+
 h1 {
     text-align: center;
     padding: 15px;
     margin: 0;
 }
+
 .mat-tab-label .mat-tab-label-content {
     font-size: 25px;
 }
+
 .align-center {
     width: 50%;
     margin: 80px auto;
     padding: 20px;
-    height: 100%;
+    height: auto;
 }
+
 .mat-tab-body-content {
     overflow: hidden;
 }
+
 .mat-tab-labels {
     justify-content: center;
-   /* align items in Main Axis */
+    /* align items in Main Axis */
 }
+
 .mat-raised-button {
     padding: 5px;
     font-size: 22px;
 }
+
 @media (max-width: 700px) {
     .align-center {
         width: 60%;
-   }
+    }
 }
+
 @media (max-width: 575px) {
     .align-center {
         width: 80%;
-   }
+    }
 }
+
 .example-container {
     display: flex;
     flex-direction: column;
     padding-top: 40px;
+}
+
+.example-card {
+    max-width: 800px;
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+mat-card-header {
+    text-align: center;
 }

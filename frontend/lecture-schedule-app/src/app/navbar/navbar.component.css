@@ -2,6 +2,6 @@
     flex: 1 1 auto;
 }
 
-.unselectable{
+.unselectable {
     user-select: none;
 }

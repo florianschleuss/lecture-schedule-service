@@ -1,4 +1,7 @@
-<div class="align-center">
+<mat-card class="align-center">
+    <!-- <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header> -->
     <mat-tab-group animationDuration="0ms">
         <mat-tab label="Login">
             <div class="example-container">
@@ -7,27 +10,29 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input #passwordLog matInput placeholder="Passwort"/>
+                    <input #passwordLog matInput placeholder="Passwort" />
                 </mat-form-field>
-                <button mat-raised-button color="primary" (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
+                <button mat-raised-button color="primary"
+                    (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
             </div>
         </mat-tab>
-        <mat-tab label="Register">
+        <mat-tab label="Registrieren">
             <div class="example-container">
                 <mat-form-field>
-                    <input #firstName matInput placeholder="Vorname" />
+                    <input #firstName matInput placeholder="Vorname" required />
                 </mat-form-field>
                 <mat-form-field>
-                    <input #lastName matInput placeholder="Nachname" />
+                    <input #lastName matInput placeholder="Nachname" required />
                 </mat-form-field>
                 <mat-form-field>
                     <input #emailReg matInput placeholder="Enter your email" required />
                 </mat-form-field>
                 <mat-form-field>
-                    <input #passwordReg matInput placeholder="Enter your password" />
+                    <input #passwordReg matInput placeholder="Enter your password" required />
                 </mat-form-field>
-                <button mat-raised-button color="primary" (click)="registerUser(firstName.value, lastName.value, emailReg.value, passwordReg.value)">Register</button>
+                <button mat-raised-button color="primary"
+                    (click)="registerUser(firstName.value, lastName.value, emailReg.value, passwordReg.value)">Registrieren</button>
             </div>
         </mat-tab>
     </mat-tab-group>
-</div>
+</mat-card>
