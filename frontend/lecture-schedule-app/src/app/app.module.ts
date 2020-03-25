@@ -43,6 +43,7 @@ import { LoginComponent } from "./login/login.component";
 import { LectureTableComponent } from "./lecture-table/lecture-table.component";
 import { DatesTableComponent } from './dates-table/dates-table.component';
 import { UserAccountComponent } from './user-account/user-account.component';
+import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 
 // const routes: Routes = [
 //   { path: "dashboard", outlet: "mainContainer", component: DashboardComponent },
@@ -60,7 +61,8 @@ import { UserAccountComponent } from './user-account/user-account.component';
         LoginComponent,
         LectureTableComponent,
         DatesTableComponent,
-        UserAccountComponent
+        UserAccountComponent,
+        ThemeSwitcherComponent
     ],
     imports: [
         BrowserModule,
@@ -95,7 +97,7 @@ import { UserAccountComponent } from './user-account/user-account.component';
         MatTooltipModule,
         MatProgressSpinnerModule
     ],
-    providers: [],
+    providers: [ThemeSwitcherComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
