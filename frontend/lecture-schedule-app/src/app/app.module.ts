@@ -42,6 +42,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./login/login.component";
 import { LectureTableComponent } from "./lecture-table/lecture-table.component";
 import { DatesTableComponent } from './dates-table/dates-table.component';
+import { UserAccountComponent } from './user-account/user-account.component';
 
 // const routes: Routes = [
 //   { path: "dashboard", outlet: "mainContainer", component: DashboardComponent },
@@ -58,7 +59,8 @@ import { DatesTableComponent } from './dates-table/dates-table.component';
         FormsComponent,
         LoginComponent,
         LectureTableComponent,
-        DatesTableComponent
+        DatesTableComponent,
+        UserAccountComponent
     ],
     imports: [
         BrowserModule,

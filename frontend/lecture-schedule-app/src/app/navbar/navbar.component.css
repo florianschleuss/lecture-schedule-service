@@ -5,3 +5,9 @@
 .unselectable {
     user-select: none;
 }
+
+.bottom {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+}

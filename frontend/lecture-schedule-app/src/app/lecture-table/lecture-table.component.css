@@ -7,8 +7,8 @@ tr.example-detail-row {
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
-    background: #555;
-    color: black;
+    /* background: #555; */
+    background: #7E8A91;
     cursor: pointer;
 }
 

@@ -50,7 +50,13 @@ h1 {
 .example-container {
     display: flex;
     flex-direction: column;
-    padding-top: 40px;
+    padding-top: 50px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
 }
 
 .example-card {
@@ -60,7 +66,18 @@ h1 {
     padding: 20px;
 }
 
-mat-card-header {
+.forgot {
+    margin: 20px 0 0 0;
+    display: block;
     text-align: center;
 }
 
+.logo {
+    cursor: pointer;
+    width: 190px;
+    height: 40px;
+}
+
+.float {
+    float: right;
+}

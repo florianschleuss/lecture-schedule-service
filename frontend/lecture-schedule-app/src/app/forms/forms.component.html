@@ -37,8 +37,11 @@
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="lectureForm.pristine || lectureForm.invalid" mat-raised-button color="primary"
-                type="submit" >Speichern</button>
-            <button type="button" mat-icon-button color="warn" (click)="deleteLecture()" class="float" matTooltip="Vorlesung löschen"><mat-icon>delete</mat-icon></button>
+                type="submit">Speichern</button>
+            <button type="button" mat-icon-button color="warn" (click)="deleteLecture()" class="float"
+                matTooltip="Vorlesung löschen">
+                <mat-icon>delete</mat-icon>
+            </button>
             <p class="help is-success">{{success}}</p>
         </mat-card-actions>
     </mat-card>

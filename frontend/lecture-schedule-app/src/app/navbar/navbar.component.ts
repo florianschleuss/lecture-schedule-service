@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
@@ -13,6 +14,18 @@ import { UserService } from '../services/user.service';
     styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
+    mode = new FormControl('side');
+
+    isDarkTheme: boolean = false;
+
+    changeTheme(): void {
+        if (this.isDarkTheme) {
+            this.isDarkTheme = false;
+        } else {
+            this.isDarkTheme = true;
+        }
+    }
+
     isMenuOpen = false;
     contentMargin = 240;
     protected name: string;

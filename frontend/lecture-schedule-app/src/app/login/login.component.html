@@ -1,21 +1,29 @@
 <mat-card class="align-center">
-    <!-- <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-    </mat-card-header> -->
+    <mat-card-header>
+        <div class="float">
+            <img class="logo" src="https://wwwlehre.dhbw-stuttgart.de/~sschulz/IMAGES/dh-logo.png" alt="">
+        </div>
+        <mat-card-title>Willkommen!</mat-card-title>
+        <mat-card-subtitle>Bitte registrieren oder loggen Sie sich ein.</mat-card-subtitle>
+    </mat-card-header>
+
     <mat-tab-group animationDuration="0ms">
         <mat-tab label="Login">
             <div class="example-container">
                 <mat-form-field>
                     <input #emailLog matInput placeholder="E-Mail" />
                 </mat-form-field>
-
                 <mat-form-field>
                     <input #passwordLog matInput placeholder="Passwort" />
                 </mat-form-field>
                 <button mat-raised-button color="primary"
                     (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
             </div>
+            <div class="example-container2">
+                <mat-card-subtitle class="forgot">Passwort vergessen?</mat-card-subtitle>
+            </div>
         </mat-tab>
+
         <mat-tab label="Registrieren">
             <div class="example-container">
                 <mat-form-field>

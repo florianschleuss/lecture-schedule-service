@@ -1,14 +1,18 @@
 <mat-toolbar class="unselectable" id="mainToolbar" color="primary">
-    <mat-icon (click)="onToolbarMenuToggle()" id="toolbarMenu">view_headline</mat-icon>
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>view_headline</mat-icon>
+    </button>
     Vorlesungsplaner
     <span class="toolbar-spacer"></span>
-    <mat-slide-toggle></mat-slide-toggle>
-    <mat-icon class="toolbar-icon" (click)="logout()" matTooltip="Ausloggen">exit_to_app</mat-icon>
+    <img class="logo" src="https://wwwlehre.dhbw-stuttgart.de/~sschulz/IMAGES/dh-logo.png" alt="">
+    <mat-slide-toggle (click)="changeTheme()"></mat-slide-toggle>
+    <button mat-icon-button (click)="logout()" class="toolbar-icon" matTooltip="Ausloggen">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
 </mat-toolbar>
 
 <mat-sidenav-container id="sidenavContainer" fullscreen>
-    <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen"
-        opened>
+    <mat-sidenav [mode]="mode.value" #sidenav id="side">
         <mat-list id="menus">
             <mat-card *ngIf="ifAuthenticated()">
                 <mat-card-header>
@@ -26,13 +30,21 @@
             <mat-list-item routerLink="calendar" [routerLinkActive]="'is-active'" *ngIf="ifAuthenticated()">
                 <button class="menu-item" mat-flat-button>
                     <mat-icon>calendar_today</mat-icon>
-                    Kalender
+                    Vorlesungsplan
                 </button>
             </mat-list-item>
-            <mat-list-item (click)="resetLectureId()" routerLink="forms" [routerLinkActive]="'is-active'" *ngIf="ifAuthenticated()">
+            <mat-list-item (click)="resetLectureId()" routerLink="forms" [routerLinkActive]="'is-active'"
+                *ngIf="ifAuthenticated()">
                 <button class="menu-item" mat-flat-button>
                     <mat-icon>add_box</mat-icon>
                     Vorlesung hinzufügen
+                </button>
+            </mat-list-item>
+            <mat-list-item class="bottom" (click)="resetLectureId()" routerLink="forms" [routerLinkActive]="'is-active'"
+                *ngIf="ifAuthenticated()">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>settings</mat-icon>
+                    Kontakt / Mein Profil
                 </button>
             </mat-list-item>
             <mat-list-item routerLink="login" [routerLinkActive]="'is-active'" *ngIf="!ifAuthenticated()">

@@ -19,12 +19,12 @@ export class FormsComponent implements OnInit {
     submitted = false;
 
     exams: exam[] = [
-        { value: 'Klausur'},
-        { value: 'Modulprüfung'},
-        { value: 'Test'},
-        { value: 'Präsentation'},
-        { value: 'Portfolio'},
-        { value: 'Keine Prüfungsleistung'},
+        { value: 'Klausur' },
+        { value: 'Modulprüfung' },
+        { value: 'Test' },
+        { value: 'Präsentation' },
+        { value: 'Portfolio' },
+        { value: 'Keine Prüfungsleistung' },
     ];
 
     protected title: string = 'Neue Vorlesung anlegen'
@@ -69,7 +69,7 @@ export class FormsComponent implements OnInit {
     }
 
     deleteLecture(): void {
-        this.apiService.remLecture('test-user', this.lectureId ? this.lectureId: '0').subscribe(data => console.log(data['message']))
+        this.apiService.remLecture('test-user', this.lectureId ? this.lectureId : '0').subscribe(data => console.log(data['message']))
         this.router.navigateByUrl('/dashboard')
     }
 
