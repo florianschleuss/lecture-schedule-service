@@ -73,6 +73,7 @@ h1 {
 }
 
 .logo {
+    margin: auto;
     cursor: pointer;
     width: 190px;
     height: 40px;

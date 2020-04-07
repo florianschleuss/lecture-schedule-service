@@ -25,17 +25,6 @@ $dark-app-theme: mat-dark-theme($dark-app-primary, $dark-app-accent, $dark-app-w
     @include angular-material-theme($dark-app-theme);
 }
 
-
-
-// .dark-theme {
-//     $candy-app-primary: mat-palette($mat-red, 900);
-//     $candy-app-accent: mat-palette($mat-red, 400, 600);
-//     $candy-app-warn: mat-palette($mat-red, 500);
-
-//     $candy-app-theme: mat-dark-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
-//     @include angular-material-theme($candy-app-theme);
-// }
-
 // dhbw rot #E32213
 // dhbw grau hell #7E8A91
 // dhbw grau dunkel #5C6971

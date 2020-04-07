@@ -1,12 +1,17 @@
 <mat-toolbar class="unselectable" id="mainToolbar" color="primary">
     <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>view_headline</mat-icon>
+        <mat-icon>menu</mat-icon>
     </button>
     <img class="logoh" src="../../assets/calendar.png">
     Vorlesungsplaner
     <span class="toolbar-spacer"></span>
     <!-- <img class="logo" src="https://wwwlehre.dhbw-stuttgart.de/~sschulz/IMAGES/dh-logo.png" alt=""> -->
-    <mat-slide-toggle (click)="themeSwitcher()"></mat-slide-toggle>
+    <button mat-icon-button matTooltip="Dark/Light Theme" (click)="themeSwitcher()">
+        <mat-icon>wb_sunny</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Einstellungen">
+        <mat-icon>settings</mat-icon>
+    </button>
     <!-- <button mat-icon-butto mat-button="" (click)="themeSwitcher()">
         <mat-icon>format_color_fill</mat-icon>
       </button> -->
@@ -44,8 +49,8 @@
                     Vorlesung hinzufügen
                 </button>
             </mat-list-item>
-            <mat-list-item class="bottom" (click)="resetLectureId()" routerLink="forms" [routerLinkActive]="'is-active'"
-                *ngIf="ifAuthenticated()">
+            <mat-list-item class="bottom" (click)="resetLectureId()" routerLink="user-account"
+                [routerLinkActive]="'is-active'" *ngIf="ifAuthenticated()">
                 <button class="menu-item" mat-flat-button>
                     <mat-icon>settings</mat-icon>
                     Kontakt / Mein Profil

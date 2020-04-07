@@ -1,24 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: "root",
 })
 export class UserService {
-    private lectures: JSON = JSON.parse('[]');
-    private lectureId: string;
+  private lectureId: string;
+  private userId: string;
 
-    constructor() { }
+  constructor() {}
 
-    setLectureId(lectureId: string): void {
-        this.lectureId = lectureId
-    }
+  setUserId(userId: string): void {
+    this.userId = userId;
+  }
 
-    getLectureId(): string {
-        return this.lectureId
-    }
+  getUserId(): string {
+    return this.userId;
+  }
 
-    getLectures(): JSON {
-        return this.lectures
-    }
+  setLectureId(lectureId: string): void {
+    this.lectureId = lectureId;
+  }
 
+  getLectureId(): string {
+    return this.lectureId;
+  }
 }

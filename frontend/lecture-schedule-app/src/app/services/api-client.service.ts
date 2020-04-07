@@ -4,181 +4,177 @@ import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
 
 @Injectable({
-    providedIn: "root"
+  providedIn: "root",
 })
 export class ApiClientService {
-    authentificated: boolean = false;
+  authentificated: boolean = false;
 
-    private baseUrl = "http://data.home-webserver.de:3010/api/v1"; // URL to web api
+  private baseUrl = "http://data.home-webserver.de:3010/api/v1"; // URL to web api
 
-    private httpOptions = {
-        headers: new HttpHeaders({
-            "Content-Type": "application/json"
-        })
+  private httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json",
+    }),
+  };
+
+  constructor(private http: HttpClient) {}
+
+  private handleError<T>(result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
     };
+  }
 
-    constructor(private http: HttpClient) { }
+  auth(email, psw): Observable<JSON> {
+    let authStr: string = email + ":" + psw;
+    return this.http.get<JSON>(this.baseUrl.concat("/authentification"), {
+      headers: new HttpHeaders({ Authorization: "Basic" + authStr }),
+    });
+  }
 
-    private handleError<T>(result?: T) {
-        return (error: any): Observable<T> => {
-            console.error(error);
-            return of(result as T);
-        };
-    }
+  getAuthenticated(): boolean {
+    return this.authentificated;
+  }
 
-    auth(email, psw): Observable<JSON> {
-        let authStr: string = email + ":" + psw;
-        return this.http.get<JSON>(this.baseUrl.concat("/authentification"), {
-            headers: new HttpHeaders({ Authorization: "Basic" + authStr })
-        });
-    }
+  setAuthenticated(state: boolean) {
+    this.authentificated = state;
+  }
 
-    getAuthenticated(): boolean {
-        return this.authentificated;
-    }
+  getUser(userId: string): Observable<JSON> {
+    return this.http.get<JSON>(this.baseUrl.concat("/users/").concat(userId));
+  }
 
-    setAuthenticated(state: boolean){
-        this.authentificated = state
-    }
+  authUser(email: string, password: string): Observable<JSON> {
+    return this.http.post<JSON>(this.baseUrl.concat("/authentification"), {
+      userId: email,
+      password: password,
+    });
+  }
 
-    getUser(userId: string): Observable<JSON> {
-        return this.http.get<JSON>(this.baseUrl.concat("/users/").concat(userId));
-    }
+  addUser(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string
+  ): Observable<JSON> {
+    return this.http.post<JSON>(this.baseUrl.concat("/users"), {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    });
+  }
 
-    authUser(email: string, password: string): Observable<JSON> {
-        return this.http.get<JSON>(this.baseUrl.concat("/authentification"));
-    }
+  getLectures(userId: string): Observable<JSON> {
+    return this.http.get<JSON>(
+      this.baseUrl.concat("/users/").concat(userId).concat("/lectures")
+    );
+  }
 
-    addUser(
-        firstName: string,
-        lastName: string,
-        email: string,
-        password: string
-    ): Observable<JSON> {
-        this.authentificated = true;
-        return this.http.post<JSON>(this.baseUrl.concat("/users"), {
-            "first-name": firstName,
-            "last-name": lastName,
-            "e-mail": email,
-            password: password
-        });
-    }
+  addLecture(
+    userId: string,
+    name: string,
+    course: string,
+    exam: string | null
+  ): Observable<string> {
+    this.authentificated = true;
+    return this.http.post<string>(
+      this.baseUrl.concat("/users/").concat(userId).concat("/lectures"),
+      {
+        name: name,
+        course: course,
+        exam: exam,
+      }
+    );
+  }
 
-    getLectures(userId: string): Observable<JSON> {
-        return this.http.get<JSON>(
-            this.baseUrl
-                .concat("/users/")
-                .concat(userId)
-                .concat("/lectures")
-        );
-    }
+  getLecture(userId: string, lectureId: string): Observable<JSON> {
+    return this.http.get<JSON>(
+      this.baseUrl
+        .concat("/users/")
+        .concat(userId)
+        .concat("/lectures/")
+        .concat(lectureId)
+    );
+  }
 
-    addLecture(
-        userId: string,
-        name: string,
-        course: string,
-        exam: string | null
-    ): Observable<string> {
-        this.authentificated = true;
-        return this.http.post<string>(
-            this.baseUrl
-                .concat("/users/")
-                .concat(userId)
-                .concat("/lectures"),
-            {
-                name: name,
-                course: course,
-                exam: exam
-            }
-        );
-    }
+  remLecture(userId: string, lectureId: string): Observable<JSON> {
+    return this.http.delete<JSON>(
+      this.baseUrl
+        .concat("/users/")
+        .concat(userId)
+        .concat("/lectures/")
+        .concat(lectureId)
+    );
+  }
 
-    getLecture(userId: string, lectureId: string): Observable<JSON> {
-        return this.http.get<JSON>(
-            this.baseUrl
-                .concat("/users/")
-                .concat(userId)
-                .concat("/lectures/")
-                .concat(lectureId)
-        );
-    }
+  getDates(userId: string, lectureId: string): Observable<JSON> {
+    return this.http.get<JSON>(
+      this.baseUrl
+        .concat("/users/")
+        .concat(userId)
+        .concat("/lectures/")
+        .concat(lectureId)
+        .concat("/dates")
+    );
+  }
 
-    remLecture(userId: string, lectureId: string): Observable<JSON> {
-        return this.http.delete<JSON>(
-            this.baseUrl
-                .concat("/users/")
-                .concat(userId)
-                .concat("/lectures/")
-                .concat(lectureId)
-        );
-    }
+  addDate(
+    userId: string,
+    lectureId: string,
+    date: string,
+    morning: boolean,
+    room: string
+  ): Observable<JSON> {
+    return this.http.post<JSON>(
+      this.baseUrl
+        .concat("/users/")
+        .concat(userId)
+        .concat("/lectures/")
+        .concat(lectureId)
+        .concat("/dates"),
+      {
+        date: date,
+        morning: morning,
+        room: room,
+      }
+    );
+  }
 
-    getDates(userId: string, lectureId: string): Observable<JSON> {
-        return this.http.get<JSON>(
-            this.baseUrl
-                .concat("/users/")
-                .concat(userId)
-                .concat("/lectures/")
-                .concat(lectureId)
-                .concat("/dates"),
-        );
-    }
+  updateDate(
+    userId: string,
+    lectureId: string,
+    dateId: string,
+    date?: string,
+    morning?: boolean,
+    room?: string
+  ): Observable<JSON> {
+    return this.http.patch<JSON>(
+      this.baseUrl
+        .concat("/users/")
+        .concat(userId)
+        .concat("/lectures/")
+        .concat(lectureId)
+        .concat("/dates/")
+        .concat(dateId),
+      {
+        date: date ? date : null,
+        moring: morning ? morning : null,
+        room: room ? room : null,
+      }
+    );
+  }
 
-    addDate(
-        userId: string,
-        lectureId: string,
-        date: string,
-        morning: boolean,
-        room: string
-    ): Observable<JSON> {
-        return this.http.post<JSON>(
-            this.baseUrl
-                .concat("/users/")
-                .concat(userId)
-                .concat("/lectures/")
-                .concat(lectureId)
-                .concat("/dates"),
-            {
-                date: date,
-                morning: morning,
-                room: room
-            }
-        );
-    }
-
-    updateDate(
-        userId: string,
-        lectureId: string,
-        dateId: string,
-        date?: string,
-        morning?: boolean,
-        room?: string,
-    ): Observable<JSON> {
-        return this.http.patch<JSON>(
-            this.baseUrl
-                .concat("/users/")
-                .concat(userId)
-                .concat("/lectures/")
-                .concat(lectureId)
-                .concat("/dates/")
-                .concat(dateId),
-            {
-                date: date ? date : null,
-                moring: morning ? morning : null,
-                room: room ? room : null
-            }
-        );
-    }
-
-    remDate(userId: string, lectureId: string, dateId: string): Observable<JSON> {
-        return this.http.delete<JSON>(
-            this.baseUrl
-                .concat("/users/")
-                .concat(userId)
-                .concat("/lectures/")
-                .concat(lectureId)
-                .concat("/dates/")
-                .concat(dateId)
-        );
-    }
+  remDate(userId: string, lectureId: string, dateId: string): Observable<JSON> {
+    return this.http.delete<JSON>(
+      this.baseUrl
+        .concat("/users/")
+        .concat(userId)
+        .concat("/lectures/")
+        .concat(lectureId)
+        .concat("/dates/")
+        .concat(dateId)
+    );
+  }
 }
