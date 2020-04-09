@@ -33,6 +33,7 @@ export class LectureTableComponent {
       .getLectures(this.userService.getUserId())
       .subscribe((data) => {
         this.dataSource = data;
+        this.userService.setLectureCount(Object.keys(data).length);
       });
   }
 

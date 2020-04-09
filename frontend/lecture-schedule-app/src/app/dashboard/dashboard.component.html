@@ -1,7 +1,9 @@
 <div class="parent">
     <mat-card class="example-card div1">
         <mat-card-header>
-            <mat-card-title matBadge="7" matBadgePosition="above after" matBadgeOverlap="false">Aktuelle Vorlesungen
+            <mat-card-title matBadge="{{getLectureCount()}}" matBadgePosition="above after" matBadgeOverlap="false">
+                Aktuelle
+                Vorlesungen
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
@@ -20,7 +22,8 @@
             <mat-card-title>User Konto</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <app-user-account></app-user-account>
+            <app-user-account>
+            </app-user-account>
         </mat-card-content>
     </mat-card>
 </div>

@@ -10,6 +10,7 @@ export class UserService {
   private userId: string;
   private firstName: string = "Vorname";
   private lastName: string = "Nachname";
+  private lectureCount: number;
 
   constructor(private apiClientService: ApiClientService) {}
 
@@ -35,5 +36,13 @@ export class UserService {
 
   getUser(): Array<string> {
     return [this.firstName, this.lastName];
+  }
+
+  getLectureCount(): number {
+    return this.lectureCount;
+  }
+
+  setLectureCount(lectureCount: number): void {
+    this.lectureCount = lectureCount;
   }
 }

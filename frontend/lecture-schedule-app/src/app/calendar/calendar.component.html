@@ -1,5 +1,4 @@
-<full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins" [weekends]="false" [events]="[
-  { title: 'Datenbanken', date: '2020-04-09' },
-  { title: 'Wirtschaftspolitik', date: '2020-04-09' },
-  { title: 'Programieren II', date: '2020-04-10' }
-]"></full-calendar>
+<div class="full-calendar">
+    <full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins" [weekends]="true" [events]='calendarEvents'>
+    </full-calendar>
+</div>
