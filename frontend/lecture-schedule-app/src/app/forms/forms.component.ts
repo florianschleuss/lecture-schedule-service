@@ -79,7 +79,7 @@ export class FormsComponent implements OnInit {
         if (this.lectureForm.invalid) {
           return;
         }
-        alert("Vorlesung wurde erfolgreich angelegt.");
+        this.router.navigateByUrl("/dashboard");
       });
   }
 

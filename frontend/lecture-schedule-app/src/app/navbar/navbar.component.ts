@@ -21,8 +21,6 @@ export class NavbarComponent implements OnInit {
 
   isMenuOpen = false;
   contentMargin = 240;
-  protected name: string;
-  protected email: string;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -85,6 +83,13 @@ export class NavbarComponent implements OnInit {
 
   resetLectureId(): void {
     this.userService.setLectureId(undefined);
-    console.log("Es geht :D");
+  }
+
+  lastName(): string {
+    return this.userService.getUser()[1];
+  }
+
+  firstName(): string {
+    return this.userService.getUser()[0];
   }
 }

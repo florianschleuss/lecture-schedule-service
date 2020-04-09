@@ -23,8 +23,10 @@
         <mat-label>Raum</mat-label>
         <input #room matInput>
     </mat-form-field>
+
     <button [disabled]="date.value === '' || (morning.value != true && morning.value != false) || room.value === ''"
-        (click)='onSubmit(date.value, morning.value, room.value)' type="submit" mat-mini-fab color="primary">
+        (click)='onSubmit(date.value, morning.value, room.value); data.value = ""' type="submit" mat-mini-fab
+        color="primary">
         <mat-icon>add</mat-icon>
     </button>
 

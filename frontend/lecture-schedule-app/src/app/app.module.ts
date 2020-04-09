@@ -5,6 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FullCalendarModule } from "@fullcalendar/angular"; // for FullCalendar!
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { FormControl, Validators } from "@angular/forms";
@@ -98,6 +99,7 @@ import { ThemeSwitcherComponent } from "./theme-switcher/theme-switcher.componen
     MatTooltipModule,
     MatProgressSpinnerModule,
     ScrollingModule,
+    FullCalendarModule,
   ],
   providers: [ThemeSwitcherComponent],
   bootstrap: [AppComponent],

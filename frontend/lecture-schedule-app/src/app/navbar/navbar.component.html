@@ -26,8 +26,8 @@
             <mat-card *ngIf="ifAuthenticated()">
                 <mat-card-header>
                     <div mat-card-avatar class="avatar"></div>
-                    <mat-card-title>Dozentenname</mat-card-title>
-                    <mat-card-subtitle>Dozent</mat-card-subtitle>
+                    <mat-card-title>{{ lastName() }}</mat-card-title>
+                    <mat-card-subtitle>{{ firstName() }}</mat-card-subtitle>
                 </mat-card-header>
             </mat-card>
             <mat-list-item routerLink="dashboard" [routerLinkActive]="'is-active'" *ngIf="ifAuthenticated()">

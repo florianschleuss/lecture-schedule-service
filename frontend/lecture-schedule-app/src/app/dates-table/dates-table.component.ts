@@ -61,7 +61,9 @@ export class DatesTableComponent implements OnInit {
             this.userService.getUserId(),
             this.userService.getLectureId()
           )
-          .subscribe((data) => (this.dataSource = data));
+          .subscribe((data) => {
+            this.dataSource = data;
+          });
       });
   }
 
