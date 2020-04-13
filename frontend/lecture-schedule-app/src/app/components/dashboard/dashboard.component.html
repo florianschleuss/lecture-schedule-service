@@ -1,0 +1,46 @@
+<div class="parent">
+    <mat-card class="example-card div1">
+        <mat-card-header>
+            <mat-card-title matBadge="{{getLectureCount()}}" matBadgePosition="above after" matBadgeOverlap="false">
+                Aktuelle
+                Vorlesungen
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <app-lecture-table></app-lecture-table>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card div2">
+        <mat-card-content>
+            <app-calendar></app-calendar>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card div3">
+        <div class="title">
+            <h1 class="mat-display-1">Willkommen, <span>{{ firstName() }} {{ lastName() }}</span></h1>
+        </div>
+        <img mat-card-image src="./pic.png" alt="Bild">
+        <div class="example-container">
+            <table class="rwd-table">
+                <tr>
+                    <td class="upper">Vorname</td>
+                    <td>{{ firstName() }}</td>
+                </tr>
+                <tr>
+                    <td class="upper">Nachname</td>
+                    <td>{{ lastName() }}</td>
+                </tr>
+                <tr>
+                    <td class="upper">Email</td>
+                    <td>{{ email() }}</td>
+                </tr>
+                <tr>
+                    <td class="upper">Passwort</td>
+                    <td>{{ password() }}</td>
+                </tr>
+            </table>
+        </div>
+    </mat-card>
+</div>

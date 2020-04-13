@@ -10,6 +10,8 @@ export class UserService {
   private userId: string;
   private firstName: string = "Vorname";
   private lastName: string = "Nachname";
+  private email: string = "Email";
+  private password: string = "Passwort";
   private lectureCount: number;
 
   constructor(private apiClientService: ApiClientService) {}
@@ -19,6 +21,8 @@ export class UserService {
     this.apiClientService.getUser(this.userId).subscribe((data) => {
       this.firstName = data["first-name"];
       this.lastName = data["last-name"];
+      this.email = data["email"];
+      this.password = data["password"];
     });
   }
 
@@ -35,7 +39,7 @@ export class UserService {
   }
 
   getUser(): Array<string> {
-    return [this.firstName, this.lastName];
+    return [this.firstName, this.lastName, this.email, this.password];
   }
 
   getLectureCount(): number {

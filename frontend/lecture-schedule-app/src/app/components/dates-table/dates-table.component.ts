@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, NgForm } from "@angular/forms";
 
-import { ApiClientService } from "../services/api-client.service";
-import { UserService } from "../services/user.service";
+import { ApiClientService } from "../../services/api-client.service";
+import { UserService } from "../../services/user.service";
 
 interface date {
   value: boolean;

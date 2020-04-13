@@ -1,21 +1,23 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { LoginComponent } from "./login/login.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { CalendarComponent } from "./calendar/calendar.component";
-import { FormsComponent } from "./forms/forms.component";
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { LoginComponent } from "./components/login/login.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { CalendarComponent } from "./components/calendar/calendar.component";
+import { FormsComponent } from "./components/forms/forms.component";
+import { UserAccountComponent } from "./components/user-account/user-account.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "calendar", component: CalendarComponent },
   { path: "forms", component: FormsComponent },
-  { path:'', redirectTo: '/login', pathMatch:'full' },
+  { path: "user-account", component: UserAccountComponent },
+  { path: "", redirectTo: "/login", pathMatch: "full" },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

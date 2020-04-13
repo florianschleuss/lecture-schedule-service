@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
-import { ApiClientService } from "../services/api-client.service";
-import { UserService } from "../services/user.service";
+import { ApiClientService } from "../../services/api-client.service";
+import { UserService } from "../../services/user.service";
 
 interface exam {
   value: string;

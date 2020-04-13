@@ -5,8 +5,8 @@ import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { ApiClientService } from "../services/api-client.service";
-import { UserService } from "../services/user.service";
+import { ApiClientService } from "../../services/api-client.service";
+import { UserService } from "../../services/user.service";
 import { ThemeSwitcherComponent } from "../theme-switcher/theme-switcher.component";
 
 @Component({

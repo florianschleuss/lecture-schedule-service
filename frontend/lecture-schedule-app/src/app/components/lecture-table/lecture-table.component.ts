@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { PageEvent } from "@angular/material/paginator";
 import { Router } from "@angular/router";
 
-import { ApiClientService } from "../services/api-client.service";
-import { UserService } from "../services/user.service";
+import { ApiClientService } from "../../services/api-client.service";
+import { UserService } from "../../services/user.service";
 
 /**
  * @title Table with expandable rows
