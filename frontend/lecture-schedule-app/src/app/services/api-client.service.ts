@@ -177,4 +177,10 @@ export class ApiClientService {
         .concat(dateId)
     );
   }
+
+  getTable(userId: string): Observable<JSON> {
+    return this.http.get<JSON>(
+      this.baseUrl.concat("/users/").concat(userId).concat("/table")
+    );
+  }
 }
