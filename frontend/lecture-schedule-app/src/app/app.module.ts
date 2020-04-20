@@ -35,6 +35,7 @@ import {
   MatStepperModule,
   MatTooltipModule,
   MatProgressSpinnerModule,
+  MatSnackBarModule,
 } from "@angular/material";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -46,6 +47,7 @@ import { LectureTableComponent } from "./components/lecture-table/lecture-table.
 import { DatesTableComponent } from "./components/dates-table/dates-table.component";
 import { UserAccountComponent } from "./components/user-account/user-account.component";
 import { ThemeSwitcherComponent } from "./components/theme-switcher/theme-switcher.component";
+import { SnackbarComponent } from "./components/snackbar/snackbar.component";
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { ThemeSwitcherComponent } from "./components/theme-switcher/theme-switch
     DatesTableComponent,
     UserAccountComponent,
     ThemeSwitcherComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +97,7 @@ import { ThemeSwitcherComponent } from "./components/theme-switcher/theme-switch
     MatProgressSpinnerModule,
     ScrollingModule,
     FullCalendarModule,
+    MatSnackBarModule,
   ],
   providers: [ThemeSwitcherComponent],
   bootstrap: [AppComponent],

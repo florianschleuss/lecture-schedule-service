@@ -1,9 +1,11 @@
 table {
     width: 100%;
+    text-overflow: ellipsis;
 }
 
 tr.example-detail-row {
     height: 0;
+    text-overflow: ellipsis;
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
@@ -19,10 +21,10 @@ tr.example-element-row:not(.example-expanded-row):active {
     border-bottom-width: 0;
 }
 
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+/* @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
     table {
         display: block;
         float: left;
         margin-right: 0.4em;
     }
-}
+} */

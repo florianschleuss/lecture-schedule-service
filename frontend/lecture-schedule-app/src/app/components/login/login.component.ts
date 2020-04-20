@@ -3,6 +3,9 @@ import { Router } from "@angular/router";
 
 import { ApiClientService } from "../../services/api-client.service";
 import { UserService } from "../../services/user.service";
+import { MatSnackBar } from "@angular/material";
+
+import { SnackbarComponent } from "../snackbar/snackbar.component";
 
 @Component({
   selector: "app-login",
@@ -10,10 +13,13 @@ import { UserService } from "../../services/user.service";
   styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
+  message = "Ihr Benutzername und/oder Passwort stimmen nicht überein.";
+
   constructor(
     private apiService: ApiClientService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {}
@@ -44,8 +50,16 @@ export class LoginComponent implements OnInit {
         this.userService.setUserId(data["user-id"]);
         this.router.navigateByUrl("/dashboard");
       } else {
-        alert("Sorry....\nDie eingegeben Daten sind nicht korrekt...");
+        this.openSnackBar(this.message, "pizza-party");
       }
+    });
+  }
+
+  openSnackBar(message: string, panelClass: string) {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: message,
+      panelClass: panelClass,
+      duration: 10000,
     });
   }
 }
