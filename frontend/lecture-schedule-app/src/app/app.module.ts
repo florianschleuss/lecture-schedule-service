@@ -5,7 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FullCalendarModule } from "@fullcalendar/angular"; // for FullCalendar!
+import { FullCalendarModule } from "@fullcalendar/angular";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FormControl, Validators } from "@angular/forms";
@@ -46,12 +46,6 @@ import { LectureTableComponent } from "./components/lecture-table/lecture-table.
 import { DatesTableComponent } from "./components/dates-table/dates-table.component";
 import { UserAccountComponent } from "./components/user-account/user-account.component";
 import { ThemeSwitcherComponent } from "./components/theme-switcher/theme-switcher.component";
-
-// const routes: Routes = [
-//   { path: "dashboard", outlet: "mainContainer", component: DashboardComponent },
-//   { path: "calendar", component: CalendarComponent },
-//   { path: "forms", component: FormsComponent }
-// ];
 
 @NgModule({
   declarations: [
