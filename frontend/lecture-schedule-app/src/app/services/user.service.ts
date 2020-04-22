@@ -26,6 +26,10 @@ export class UserService {
     });
   }
 
+  getUser(): Array<string> {
+    return [this.firstName, this.lastName, this.email, this.password];
+  }
+
   getUserId(): string {
     return this.userId;
   }
@@ -36,10 +40,6 @@ export class UserService {
 
   getLectureId(): string {
     return this.lectureId;
-  }
-
-  getUser(): Array<string> {
-    return [this.firstName, this.lastName, this.email, this.password];
   }
 
   getLectureCount(): number {

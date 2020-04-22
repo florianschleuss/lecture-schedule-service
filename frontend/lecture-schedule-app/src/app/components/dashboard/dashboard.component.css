@@ -153,13 +153,16 @@ mat-card-header {
 @media (min-width: 480px) {
     .rwd-table th, .rwd-table td {
         display: table-cell;
-        padding: .25em .5em;
+        padding: .20em .5em;
     }
     .rwd-table th:first-child, .rwd-table td:first-child {
         padding-left: 0;
     }
     .rwd-table th:last-child, .rwd-table td:last-child {
         padding-right: 0;
+    }
+    .title {
+        font-size: 1.1rem;
     }
 }
 
@@ -173,7 +176,7 @@ mat-card-header {
 }
 
 .rwd-table th, .rwd-table td {
-    margin: .5em 1em;
+    margin: .3em 1em;
 }
 
 @media (min-width: 480px) {
