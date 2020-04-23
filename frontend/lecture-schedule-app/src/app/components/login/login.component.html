@@ -1,4 +1,4 @@
-<mat-card class="align-center">
+<!-- <mat-card class="align-center">
     <mat-card-header>
         <mat-card-title>Willkommen!</mat-card-title>
         <mat-card-subtitle>Bitte registrieren oder loggen Sie sich ein.</mat-card-subtitle>
@@ -40,4 +40,63 @@
             </div>
         </mat-tab>
     </mat-tab-group>
-</mat-card>
+</mat-card> -->
+<div class="container">
+    <div class="img">
+        <!-- <img src="../../../assets/undraw_spreadsheet_69ax.svg"> -->
+        <img src="../../../assets/bd.svg">
+        <!-- <img src="../../../assets/bg.svg"> -->
+        <!-- <img src="../../../assets/cal.svg"> -->
+        <!-- <img src="../../../assets/undraw_booking_33fn.svg"> -->
+    </div>
+    <div class="login-content">
+        <mat-card class="align-center">
+            <mat-card-header>
+                <mat-card-title>Willkommen!</mat-card-title>
+                <mat-card-subtitle>Bitte registrieren oder loggen Sie sich ein.</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-tab-group animationDuration="0ms">
+                <mat-tab label="Login">
+                    <div class="example-container">
+                        <mat-form-field>
+                            <input #emailLog matInput placeholder="E-Mail" />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input #passwordLog matInput placeholder="Passwort" />
+                        </mat-form-field>
+                        <button mat-raised-button color="primary"
+                            (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
+                    </div>
+                    <div class="example-container2">
+                        <mat-card-subtitle class="forgot">Passwort vergessen?</mat-card-subtitle>
+                    </div>
+                </mat-tab>
+
+                <mat-tab label="Registrieren">
+                    <div class="example-container">
+                        <mat-form-field>
+                            <input #firstName matInput placeholder="Vorname" required />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input #lastName matInput placeholder="Nachname" required />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input #emailReg matInput placeholder="Email" required />
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input #passwordReg matInput placeholder="Passwort" required />
+                        </mat-form-field>
+                        <button mat-raised-button color="primary"
+                            (click)="registerUser(firstName.value, lastName.value, emailReg.value, passwordReg.value)">Registrieren</button>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card>
+    </div>
+    <img class="wave" src="../../../assets/wave.svg">
+</div>
+
+<div class="footer">
+    <p>&copy; 2020 | Schworm • Schleuss • Strauss</p>
+</div>
