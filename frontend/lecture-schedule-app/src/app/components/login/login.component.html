@@ -52,7 +52,7 @@
     <div class="login-content">
         <mat-card class="align-center">
             <mat-card-header>
-                <mat-card-title>Willkommen!</mat-card-title>
+                <mat-card-title>Willkommen 👋🏻</mat-card-title>
                 <mat-card-subtitle>Bitte registrieren oder loggen Sie sich ein.</mat-card-subtitle>
             </mat-card-header>
 
@@ -76,16 +76,16 @@
                 <mat-tab label="Registrieren">
                     <div class="example-container">
                         <mat-form-field>
-                            <input #firstName matInput placeholder="Vorname" required />
+                            <input #firstName matInput placeholder="Vorname" />
                         </mat-form-field>
                         <mat-form-field>
-                            <input #lastName matInput placeholder="Nachname" required />
+                            <input #lastName matInput placeholder="Nachname" />
                         </mat-form-field>
                         <mat-form-field>
-                            <input #emailReg matInput placeholder="Email" required />
+                            <input #emailReg matInput placeholder="Email" />
                         </mat-form-field>
                         <mat-form-field>
-                            <input #passwordReg matInput placeholder="Passwort" required />
+                            <input #passwordReg matInput placeholder="Passwort" />
                         </mat-form-field>
                         <button mat-raised-button color="primary"
                             (click)="registerUser(firstName.value, lastName.value, emailReg.value, passwordReg.value)">Registrieren</button>
@@ -97,6 +97,9 @@
     <img class="wave" src="../../../assets/wave.svg">
 </div>
 
+
 <div class="footer">
+    <a href="https://www.dhbw-stuttgart.de/home/" target="_blank"><img class="dhbw" src="../../../assets/dhbw.svg"
+            alt=""></a>
     <p>&copy; 2020 | Schworm • Schleuss • Strauss</p>
 </div>

@@ -76,7 +76,9 @@ export class ApiClientService {
     userId: string,
     name: string,
     course: string,
-    exam: string | null
+    exam: string | null,
+    start: string,
+    end: string
   ): Observable<string> {
     this.authentificated = true;
     return this.http.post<string>(
@@ -85,6 +87,8 @@ export class ApiClientService {
         name: name,
         course: course,
         exam: exam,
+        start: start,
+        end: end,
       }
     );
   }
@@ -182,5 +186,23 @@ export class ApiClientService {
     return this.http.get<JSON>(
       this.baseUrl.concat("/users/").concat(userId).concat("/table")
     );
+  }
+
+  // postSemester(
+  //   semesterName: string,
+  //   semesterStart: string,
+  //   semesterEnd: string,
+  //   userEmail: string
+  // ): Observable<JSON> {
+  //   return this.http.post<JSON>(this.baseUrl.concat("/semesters"), {
+  //     semesterName: semesterName,
+  //     semesterStart: semesterStart,
+  //     semesterEnd: semesterEnd,
+  //     userEmail: userEmail,
+  //   });
+  // }
+
+  getSemester(): Observable<JSON> {
+    return this.http.get<JSON>(this.baseUrl.concat("/semesters"));
   }
 }

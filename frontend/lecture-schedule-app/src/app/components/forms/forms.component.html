@@ -2,6 +2,7 @@
     <mat-card class="card">
         <mat-card-header>
             <mat-card-title>{{ title }}</mat-card-title>
+            <mat-card-subtitle color="warn">Verfügbarer Zeitraum: 10.03.2020 - 11.05.2020</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <div class="row">
@@ -26,11 +27,11 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <!-- <mat-form-field>
+            <mat-form-field>
                 <input matInput [matDatepicker]="picker" placeholder="Prüfungstermin" formControlName="examDate" />
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field> -->
+            </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
             <button [disabled]="lectureForm.pristine || lectureForm.invalid" mat-raised-button color="primary"
@@ -45,3 +46,5 @@
 </form>
 
 <app-dates-table></app-dates-table>
+
+<!-- <img class="wave" src="../../../assets/wave (1).svg"> -->

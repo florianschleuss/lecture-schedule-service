@@ -1,0 +1,102 @@
+<div class="parent">
+    <div class="div1">
+        <mat-card class="example-card div1">
+            <mat-card-header>
+                <mat-card-title>
+                    Vorlesungzeiten eintragen
+                </mat-card-title>
+                <mat-card-subtitle>Füllen Sie die nachfolgenden Felder aus, um eine Vorlesungszeit einzutragen.
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-form-field>
+                <mat-label>Vorlesung</mat-label>
+                <input #name matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Kurs</mat-label>
+                <input #course matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>User-Email</mat-label>
+                <input #user matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Vorlesungsstart</mat-label>
+                <input #beginDate matInput [matDatepicker]="picker" placeholder="Vorlesungstart" />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Vorlesungsende</mat-label>
+                <input #endDate matInput [matDatepicker]="picker2" placeholder="Vorlesungende" />
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <button [disabled]="beginDate.value === '' || endDate.value === ''|| name.value === '' || user.value === ''"
+                (click)='onSubmit(name.value, beginDate.value, endDate.value, user.value); name.value = ""'
+                type="submit" mat-mini-fab color="primary">
+                <mat-icon>add</mat-icon>
+            </button>
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Vorlesung </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- <ng-container matColumnDef="cource">
+                    <th mat-header-cell *matHeaderCellDef> Kurs </th>
+                    <td mat-cell *matCellDef="let element"> {{element.cource}} </td>
+                </ng-container> -->
+
+                <ng-container matColumnDef="start">
+                    <th mat-header-cell *matHeaderCellDef> Vorlesungsstart </th>
+                    <td mat-cell *matCellDef="let element"> {{element.start}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="end">
+                    <th mat-header-cell *matHeaderCellDef> Vorlesungsende </th>
+                    <td mat-cell *matCellDef="let element"> {{element.end}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="user">
+                    <th mat-header-cell *matHeaderCellDef> User-Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.user}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card>
+    </div>
+    <div class="div2">
+        <mat-card class="example-card div1">
+            <mat-card-header>
+                <mat-card-title>
+                    Nutzer
+                </mat-card-title>
+                <mat-card-subtitle>Hier sehen Sie alle registrierte Dozenten/Professoren.</mat-card-subtitle>
+            </mat-card-header>
+            <!-- <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Vorname </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="clock">
+                    <th mat-header-cell *matHeaderCellDef> Nachname </th>
+                    <td mat-cell *matCellDef="let element"> {{element.morning ? 'Vormittag' : 'Nachmittag'}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="room">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.room}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table> -->
+        </mat-card>
+    </div>
+</div>
+
+<!-- <img class="wave" src="../../../assets/wave (2).svg"> -->

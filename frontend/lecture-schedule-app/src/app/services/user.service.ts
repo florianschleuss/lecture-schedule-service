@@ -13,6 +13,7 @@ export class UserService {
   private email: string = "Email";
   private password: string = "Passwort";
   private lectureCount: number;
+  private admin: boolean = false;
 
   constructor(private apiClientService: ApiClientService) {}
 
@@ -48,5 +49,13 @@ export class UserService {
 
   setLectureCount(lectureCount: number): void {
     this.lectureCount = lectureCount;
+  }
+
+  getAdmin(): boolean {
+    return this.admin;
+  }
+
+  setAdmin(state: boolean): void {
+    this.admin = state;
   }
 }

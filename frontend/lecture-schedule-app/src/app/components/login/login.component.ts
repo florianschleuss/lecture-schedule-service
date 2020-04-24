@@ -46,7 +46,11 @@ export class LoginComponent implements OnInit {
   loginUser(email: string, password: string): void {
     this.apiService.authUser(email, password).subscribe((data) => {
       this.apiService.setAuthenticated(data["authenticated"]);
-      if (data["authenticated"]) {
+      if (data["admin"]) {
+        this.userService.setAdmin(true);
+        this.userService.setUserId(data["user-id"]);
+        this.router.navigateByUrl("/admin-dashboard");
+      } else if (data["authenticated"]) {
         this.userService.setUserId(data["user-id"]);
         this.router.navigateByUrl("/dashboard");
       } else {

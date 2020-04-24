@@ -147,3 +147,30 @@ h1 {
     text-transform: uppercase;
     color: white;
 }
+
+.ft-social {
+    padding: 0 1.875rem 1.25rem;
+}
+
+.ft-social-list {
+    display: flex;
+    justify-content: center;
+    border-top: 0.5px #7E8A91 solid;
+    padding-top: 1.25rem;
+}
+
+.ft-social-list li {
+    margin: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.dhbw {
+    width: 6%;
+    height: auto;
+}
+
+.dhbw:hover {
+    width: 10%;
+    height: auto;
+    transition: all 0.8s;
+}

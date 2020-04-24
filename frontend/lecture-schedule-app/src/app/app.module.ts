@@ -48,6 +48,7 @@ import { DatesTableComponent } from "./components/dates-table/dates-table.compon
 import { UserAccountComponent } from "./components/user-account/user-account.component";
 import { ThemeSwitcherComponent } from "./components/theme-switcher/theme-switcher.component";
 import { SnackbarComponent } from "./components/snackbar/snackbar.component";
+import { AdminDashboardComponent } from "./components/admin-dashboard/admin-dashboard.component";
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { SnackbarComponent } from "./components/snackbar/snackbar.component";
     UserAccountComponent,
     ThemeSwitcherComponent,
     SnackbarComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     BrowserModule,

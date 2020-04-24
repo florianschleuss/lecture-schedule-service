@@ -23,20 +23,29 @@
                     <mat-card-subtitle>{{ firstName() }}</mat-card-subtitle>
                 </mat-card-header>
             </mat-card>
-            <mat-list-item routerLink="dashboard" [routerLinkActive]="'is-active'" *ngIf="ifAuthenticated()">
+            <mat-list-item routerLink="dashboard" [routerLinkActive]="'is-active'"
+                *ngIf="ifAuthenticated() && !ifAdmin()">
                 <button class="menu-item" mat-flat-button>
                     <mat-icon>dashboard</mat-icon>
                     Dashboard
                 </button>
             </mat-list-item>
-            <mat-list-item routerLink="calendar" [routerLinkActive]="'is-active'" *ngIf="ifAuthenticated()">
+            <mat-list-item routerLink="admin-dashboard" [routerLinkActive]="'is-active'"
+                *ngIf="ifAuthenticated() && ifAdmin()">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>dashboard</mat-icon>
+                    Admin-Dashbard
+                </button>
+            </mat-list-item>
+            <mat-list-item routerLink="calendar" [routerLinkActive]="'is-active'"
+                *ngIf="ifAuthenticated() && !ifAdmin()">
                 <button class="menu-item" mat-flat-button>
                     <mat-icon>calendar_today</mat-icon>
                     Vorlesungsplan
                 </button>
             </mat-list-item>
             <mat-list-item (click)="resetLectureId()" routerLink="forms" [routerLinkActive]="'is-active'"
-                *ngIf="ifAuthenticated()">
+                *ngIf="ifAuthenticated() && ifAdmin()">
                 <button class="menu-item" mat-flat-button>
                     <mat-icon>add_box</mat-icon>
                     Vorlesung hinzufügen

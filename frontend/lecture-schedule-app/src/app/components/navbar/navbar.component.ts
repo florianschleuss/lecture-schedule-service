@@ -65,10 +65,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl("/login");
     this.apiClient.setAuthenticated(false);
     this.userService.setUserId(undefined);
+    this.userService.setAdmin(false);
   }
 
   ifAuthenticated(): boolean {
     return this.apiClient.getAuthenticated();
+  }
+
+  ifAdmin(): boolean {
+    return this.userService.getAdmin();
   }
 
   onToolbarMenuToggle() {
