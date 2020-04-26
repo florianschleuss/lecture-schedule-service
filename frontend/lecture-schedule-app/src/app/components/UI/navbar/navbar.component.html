@@ -1,0 +1,59 @@
+<mat-toolbar class="unselectable" id="mainToolbar" color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img class="logoh" src="../../assets/calendar.png">
+    Vorlesungsplaner
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button matTooltip="Dark/Light Theme" (click)="themeSwitcher()">
+        <mat-icon>wb_sunny</mat-icon>
+    </button>
+    <button mat-icon-button (click)="logout()" class="toolbar-icon" matTooltip="Ausloggen">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-sidenav-container id="sidenavContainer" fullscreen>
+    <mat-sidenav [mode]="mode.value" #sidenav id="side">
+        <mat-list id="menus">
+            <mat-card *ngIf="ifAuthenticated()">
+                <mat-card-header>
+                    <div mat-card-avatar class="avatar"></div>
+                    <mat-card-title>{{ lastName() }}</mat-card-title>
+                    <mat-card-subtitle>{{ firstName() }}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <mat-list-item routerLink="dashboard" [routerLinkActive]="'is-active'"
+                *ngIf="ifAuthenticated() && !ifAdmin()">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>dashboard</mat-icon>
+                    Dashboard
+                </button>
+            </mat-list-item>
+            <mat-list-item routerLink="admin-dashboard" [routerLinkActive]="'is-active'"
+                *ngIf="ifAuthenticated() && ifAdmin()">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>dashboard</mat-icon>
+                    Admin-Dashbard
+                </button>
+            </mat-list-item>
+            <mat-list-item routerLink="calendar" [routerLinkActive]="'is-active'"
+                *ngIf="ifAuthenticated() && !ifAdmin()">
+                <button class="menu-item" mat-flat-button>
+                    <mat-icon>calendar_today</mat-icon>
+                    Vorlesungsplan
+                </button>
+            </mat-list-item>
+            <mat-list-item routerLink="login" [routerLinkActive]="'is-active'" *ngIf="!ifAuthenticated()">
+                <button class="menu-item" mat-flat-button matTooltip="Einloggen">
+                    <mat-icon>vpn_key</mat-icon>
+                    Login
+                </button>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

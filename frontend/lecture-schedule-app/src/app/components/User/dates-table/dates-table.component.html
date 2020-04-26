@@ -1,0 +1,77 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>Vorlesungstermine hinzufügen</mat-card-title>
+        <mat-card-subtitle color="warn">Verfügbarer Zeitraum: {{ timeFrame }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-form-field>
+        <mat-label>Datum einfügen</mat-label>
+        <input #date matInput [matDatepicker]="picker" placeholder="Prüfungstermin" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Uhrzeit</mat-label>
+        <mat-select #morning>
+            <mat-option *ngFor="let date of dates" [value]="date.value">
+                {{date.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Raum</mat-label>
+        <input #room matInput>
+    </mat-form-field>
+
+    <button [disabled]="date.value === '' || (morning.value != true && morning.value != false) || room.value === ''"
+        (click)='onSubmit(date.value, morning.value, room.value); data.value = ""' type="submit" mat-mini-fab
+        color="primary">
+        <mat-icon>add</mat-icon>
+    </button>
+
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Vorlesungstermin </th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="clock">
+            <th mat-header-cell *matHeaderCellDef> Uhrzeit </th>
+            <td mat-cell *matCellDef="let element"> {{element.morning ? 'Vormittag' : 'Nachmittag'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="room">
+            <th mat-header-cell *matHeaderCellDef> Raum </th>
+            <td mat-cell *matCellDef="let element"> {{element.room}}</td>
+            <button mat-icon-button color="warn" class="float" matTooltip="Vorlesung löschen">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Bearbeiten </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button matTooltip="Click to Edit" class="iconbutton">
+                    <mat-icon aria-label="Edit">edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" align="right">
+                <button mat-icon-button color="warn" (click)="redirectToDelete(element.id)">
+                    <mat-icon class="mat-18">edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteDate(element['date-id'])">
+                    <mat-icon class="mat-18">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</mat-card>

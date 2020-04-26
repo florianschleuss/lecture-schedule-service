@@ -45,6 +45,10 @@ export class ApiClientService {
     return this.http.get<JSON>(this.baseUrl.concat("/users/").concat(userId));
   }
 
+  getUsers(): Observable<JSON> {
+    return this.http.get<JSON>(this.baseUrl.concat("/users"));
+  }
+
   authUser(email: string, password: string): Observable<JSON> {
     return this.http.post<JSON>(this.baseUrl.concat("/authentification"), {
       userId: email,

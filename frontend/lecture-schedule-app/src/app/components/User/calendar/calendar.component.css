@@ -1,0 +1,19 @@
+.full-calendar {
+    margin: 2rem;
+    margin-top: 0;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    table {
+        display: block;
+        float: left;
+        margin-right: 0.4em;
+    }
+}
+
+.example-card {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 10px;
+    overflow: auto;
+}

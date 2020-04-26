@@ -7,7 +7,7 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { ScrollingModule } from "@angular/cdk/scrolling";
-import { NavbarComponent } from "./components/navbar/navbar.component";
+import { NavbarComponent } from "./components/UI/navbar/navbar.component";
 import { FormControl, Validators } from "@angular/forms";
 import { LayoutModule } from "@angular/cdk/layout";
 import {
@@ -37,18 +37,18 @@ import {
   MatProgressSpinnerModule,
   MatSnackBarModule,
 } from "@angular/material";
-import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { DashboardComponent } from "./components/User/dashboard/dashboard.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { CalendarComponent } from "./components/calendar/calendar.component";
-import { FormsComponent } from "./components/forms/forms.component";
+import { CalendarComponent } from "./components/User/calendar/calendar.component";
+import { FormsComponent } from "./components/User/forms/forms.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { LoginComponent } from "./components/login/login.component";
-import { LectureTableComponent } from "./components/lecture-table/lecture-table.component";
-import { DatesTableComponent } from "./components/dates-table/dates-table.component";
-import { UserAccountComponent } from "./components/user-account/user-account.component";
-import { ThemeSwitcherComponent } from "./components/theme-switcher/theme-switcher.component";
-import { SnackbarComponent } from "./components/snackbar/snackbar.component";
-import { AdminDashboardComponent } from "./components/admin-dashboard/admin-dashboard.component";
+import { LoginComponent } from "./components/UI/login/login.component";
+import { LectureTableComponent } from "./components/User/lecture-table/lecture-table.component";
+import { DatesTableComponent } from "./components/User/dates-table/dates-table.component";
+import { ThemeSwitcherComponent } from "./components/UI/theme-switcher/theme-switcher.component";
+import { SnackbarComponent } from "./components/UI/snackbar/snackbar.component";
+import { AdminDashboardComponent } from "./components/Admin/admin-dashboard/admin-dashboard.component";
+import { UserTableComponent } from "./components/Admin/user-table/user-table.component";
 
 @NgModule({
   declarations: [
@@ -60,10 +60,10 @@ import { AdminDashboardComponent } from "./components/admin-dashboard/admin-dash
     LoginComponent,
     LectureTableComponent,
     DatesTableComponent,
-    UserAccountComponent,
     ThemeSwitcherComponent,
     SnackbarComponent,
     AdminDashboardComponent,
+    UserTableComponent,
   ],
   imports: [
     BrowserModule,
