@@ -9,6 +9,8 @@ import { FullCalendarModule } from "@fullcalendar/angular";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { NavbarComponent } from "./components/UI/navbar/navbar.component";
 import { FormControl, Validators } from "@angular/forms";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatExpansionModule } from "@angular/material/expansion";
 import { LayoutModule } from "@angular/cdk/layout";
 import {
   MatToolbarModule,
@@ -49,6 +51,8 @@ import { ThemeSwitcherComponent } from "./components/UI/theme-switcher/theme-swi
 import { SnackbarComponent } from "./components/UI/snackbar/snackbar.component";
 import { AdminDashboardComponent } from "./components/Admin/admin-dashboard/admin-dashboard.component";
 import { UserTableComponent } from "./components/Admin/user-table/user-table.component";
+import { DialogEditComponent } from "./components/User/dates-table/dialog-edit/dialog-edit.component";
+import { DialogDeleteComponent } from './components/User/dates-table/dialog-delete/dialog-delete.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +68,8 @@ import { UserTableComponent } from "./components/Admin/user-table/user-table.com
     SnackbarComponent,
     AdminDashboardComponent,
     UserTableComponent,
+    DialogEditComponent,
+    DialogDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,6 +106,8 @@ import { UserTableComponent } from "./components/Admin/user-table/user-table.com
     ScrollingModule,
     FullCalendarModule,
     MatSnackBarModule,
+    MatExpansionModule,
+    MatDialogModule,
   ],
   providers: [ThemeSwitcherComponent],
   bootstrap: [AppComponent],

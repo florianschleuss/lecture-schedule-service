@@ -1,16 +1,65 @@
-<table mat-table [dataSource]="dataSource" multiTemplateDataRows>
-    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-        <th mat-header-cell *matHeaderCellDef> {{columnNames[column]}} </th>
-        <td mat-cell (click)=onItemClick(element) *matCellDef="let element"> {{element[column]}} </td>
-    </ng-container>
-    <ng-container matColumnDef="expandedDetail">
-        <td mat-cell *matCellDef="let element" (click)=onItemClick() [attr.colspan]="columnsToDisplay.length">
-        </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
-        [class.example-expanded-row]="expandedElement === element"
-        (click)="expandedElement = expandedElement === element ? null : element">
-    </tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-</table>
+<!-- <div class="example-container">
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+        <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+            <th mat-header-cell *matHeaderCellDef> {{columnNames[column]}} </th>
+            <td mat-cell (click)=onItemClick(element) *matCellDef="let element"> {{element[column]}} </td>
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" (click)=onItemClick() [attr.colspan]="columnsToDisplay.length">
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+            [class.example-expanded-row]="expandedElement === element"
+            (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+</div> -->
+
+
+<div class="example-container">
+    <mat-table [dataSource]="dataSource" [class.isMobile]="isMobile">
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Vorlesung</mat-header-cell>
+            <mat-cell (click)=onItemClick(element) *matCellDef="let element">
+                {{element.name}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="course">
+            <mat-header-cell *matHeaderCellDef> Kurs </mat-header-cell>
+            <mat-cell (click)=onItemClick(element) *matCellDef="let element">
+                <span class="mobile-label">Kurs:</span>
+                {{element.course}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="exam">
+            <mat-header-cell *matHeaderCellDef> Prüfungsform </mat-header-cell>
+            <mat-cell (click)=onItemClick(element) *matCellDef="let element">
+                <span class="mobile-label">Prüfungsform:</span>
+                {{element.exam}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="start">
+            <mat-header-cell *matHeaderCellDef> Vorlesungsstart </mat-header-cell>
+            <mat-cell (click)=onItemClick(element) *matCellDef="let element">
+                <span class="mobile-label">Vorlesungsstart:</span>
+                {{element.start}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="end">
+            <mat-header-cell *matHeaderCellDef> Vorlesungsende </mat-header-cell>
+            <mat-cell (click)=onItemClick(element) *matCellDef="let element">
+                <span class="mobile-label">Vorlesungsende:</span>
+                {{element.end}}
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

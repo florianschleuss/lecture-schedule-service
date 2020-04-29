@@ -10,24 +10,20 @@ import {
 import { ApiClientService } from "../../../services/api-client.service";
 import { UserService } from "../../../services/user.service";
 
-/**
- * @title Table with expandable rows
- */
 @Component({
   selector: "app-lecture-table",
   templateUrl: "./lecture-table.component.html",
   styleUrls: ["./lecture-table.component.css"],
 })
 export class LectureTableComponent {
+  protected displayedColumns: string[] = [
+    "name",
+    "course",
+    "exam",
+    "start",
+    "end",
+  ];
   protected dataSource: JSON = JSON.parse("[]");
-  protected columnNames = {
-    name: "Vorlesung",
-    course: "Kurs",
-    exam: "Prüfung",
-    start: "Vorlesungsstart",
-    end: "Vorlesungsende",
-  };
-  protected columnsToDisplay = ["name", "course", "exam", "start", "end"];
 
   constructor(
     private apiService: ApiClientService,

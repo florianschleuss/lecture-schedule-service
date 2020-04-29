@@ -1,98 +1,150 @@
-<div class="parent">
-    <div class="div1">
-        <mat-card class="example-card div1">
+<mat-card class="example-card">
+    <div class="parent2">
+        <div class="div11">
             <mat-card-header>
                 <mat-card-title>
                     Vorlesungzeiten eintragen
                 </mat-card-title>
-                <mat-card-subtitle>Füllen Sie die nachfolgenden Felder aus, um eine Vorlesungszeit einzutragen.
-                </mat-card-subtitle>
             </mat-card-header>
-            <mat-form-field>
-                <mat-label>Vorlesung</mat-label>
-                <input #name matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Kurs</mat-label>
-                <input #course matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>User-Email</mat-label>
-                <input #user matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Vorlesungsstart</mat-label>
-                <input #beginDate matInput [matDatepicker]="picker" placeholder="Vorlesungstart" />
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Vorlesungsende</mat-label>
-                <input #endDate matInput [matDatepicker]="picker2" placeholder="Vorlesungende" />
-                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Prüfungsform</mat-label>
-                <mat-select #exam>
-                    <mat-option *ngFor="let exam of exams" [value]="exam.value">
-                        {{exam.value}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <button
-                [disabled]="beginDate.value === '' || endDate.value === ''|| name.value === '' || user.value === '' || exam.value === '' || course.value === ''"
-                (click)='onSubmit(name.value, beginDate.value, endDate.value, user.value, course.value, exam.value); name.value = ""'
-                type="submit" mat-mini-fab color="primary">
-                <mat-icon>add</mat-icon>
-            </button>
-            <table mat-table [dataSource]="dataSource">
+            <mat-vertical-stepper [linear]="isLinear" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Vorlesung eintragen</ng-template>
+                        <mat-form-field>
+                            <mat-label>Vorlesung</mat-label>
+                            <input #name matInput>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Kurs</mat-label>
+                            <input #course matInput>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Prüfungsform</mat-label>
+                            <mat-select #exam>
+                                <mat-option *ngFor="let exam of exams" [value]="exam.value">
+                                    {{exam.value}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext>Weiter</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                    <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Dozent eintragen</ng-template>
+                        <mat-form-field>
+                            <mat-label>User-Email</mat-label>
+                            <input #user matInput>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperPrevious>Zurück</button>
+                            <button mat-button matStepperNext>Weiter</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                    <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Vorlesungszeitraum festlegen</ng-template>
+                        <mat-form-field>
+                            <mat-label>Vorlesungsstart</mat-label>
+                            <input #beginDate matInput [matDatepicker]="picker" placeholder="Vorlesungstart" />
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Vorlesungsende</mat-label>
+                            <input #endDate matInput [matDatepicker]="picker2" placeholder="Vorlesungende" />
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperPrevious>Zurück</button>
+                            <button mat-button matStepperNext>Weiter</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Fertig!</ng-template>
+                    <div>
+                        <button mat-button matStepperPrevious>Zurück</button>
+                        <button
+                            [disabled]="beginDate.value === '' || endDate.value === ''|| name.value === '' || user.value === '' || exam.value === '' || course.value === ''"
+                            (click)='onSubmit(name.value, beginDate.value, endDate.value, user.value, course.value, exam.value); name.value = ""'
+                            type="submit" mat-mini-fab color="primary">
+                            <mat-icon>add</mat-icon>
+                        </button> </div>
+                </mat-step>
+            </mat-vertical-stepper>
+        </div>
+        <div class="div22">
+            <mat-table [dataSource]="dataSource" [class.isMobile]="isMobile">
                 <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef> Vorlesung </th>
-                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    <mat-header-cell *matHeaderCellDef>Vorlesung</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        {{element.name}}
+                    </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="course">
-                    <th mat-header-cell *matHeaderCellDef> Kurs </th>
-                    <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+                    <mat-header-cell *matHeaderCellDef> Kurs </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <span class="mobile-label">Kurs:</span>
+                        {{element.course}}
+                    </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="exam">
-                    <th mat-header-cell *matHeaderCellDef> Prüfungsform </th>
-                    <td mat-cell *matCellDef="let element"> {{element.exam}} </td>
+                    <mat-header-cell *matHeaderCellDef> Prüfungsform </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <span class="mobile-label">Prüfungsform:</span>
+                        {{element.exam}}
+                    </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="start">
-                    <th mat-header-cell *matHeaderCellDef> Vorlesungsstart </th>
-                    <td mat-cell *matCellDef="let element"> {{element.start}} </td>
+                    <mat-header-cell *matHeaderCellDef> Vorlesungsstart </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <span class="mobile-label">Vorlesungsstart:</span>
+                        {{element.start}}
+                    </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="end">
-                    <th mat-header-cell *matHeaderCellDef> Vorlesungsende </th>
-                    <td mat-cell *matCellDef="let element"> {{element.end}}</td>
+                    <mat-header-cell *matHeaderCellDef> Vorlesungsende </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <span class="mobile-label">Vorlesungsende:</span>
+                        {{element.end}}
+                    </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="user">
-                    <th mat-header-cell *matHeaderCellDef> User-Email </th>
-                    <td mat-cell *matCellDef="let element"> {{element.user}}</td>
+                    <mat-header-cell *matHeaderCellDef> User-Email </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <span class="mobile-label">User-Email :</span>
+                        {{element.user}}
+                    </mat-cell>
                 </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-        </mat-card>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
     </div>
-    <div class="div2">
-        <mat-card class="example-card div1">
-            <mat-card-header>
-                <mat-card-title>
-                    Nutzer
-                </mat-card-title>
-                <mat-card-subtitle>Hier sehen Sie alle registrierte Dozenten/Professoren.</mat-card-subtitle>
-            </mat-card-header>
-            <mat-carad-content>
-                <app-user-table></app-user-table>
-            </mat-carad-content>
-        </mat-card>
-    </div>
+</mat-card>
+
+<div class="div2">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>
+                Nutzer
+            </mat-card-title>
+            <mat-card-subtitle>Hier sehen Sie alle registrierte Dozenten/Professoren.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-carad-content>
+            <app-user-table></app-user-table>
+        </mat-carad-content>
+    </mat-card>
 </div>

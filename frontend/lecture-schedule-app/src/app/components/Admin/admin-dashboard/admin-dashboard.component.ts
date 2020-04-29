@@ -13,6 +13,20 @@ interface exam {
   styleUrls: ["./admin-dashboard.component.css"],
 })
 export class AdminDashboardComponent implements OnInit {
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
+
   exams: exam[] = [
     { value: "Klausur" },
     { value: "Modulprüfung" },
@@ -25,9 +39,9 @@ export class AdminDashboardComponent implements OnInit {
     "name",
     "course",
     "user",
+    "exam",
     "start",
     "end",
-    "exam",
   ];
   protected dataSource: JSON = JSON.parse("[]");
 

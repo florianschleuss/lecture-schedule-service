@@ -1,46 +1,3 @@
-<!-- <mat-card class="align-center">
-    <mat-card-header>
-        <mat-card-title>Willkommen!</mat-card-title>
-        <mat-card-subtitle>Bitte registrieren oder loggen Sie sich ein.</mat-card-subtitle>
-    </mat-card-header>
-
-    <mat-tab-group animationDuration="0ms">
-        <mat-tab label="Login">
-            <div class="example-container">
-                <mat-form-field>
-                    <input #emailLog matInput placeholder="E-Mail" />
-                </mat-form-field>
-                <mat-form-field>
-                    <input #passwordLog matInput placeholder="Passwort" />
-                </mat-form-field>
-                <button mat-raised-button color="primary"
-                    (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
-            </div>
-            <div class="example-container2">
-                <mat-card-subtitle class="forgot">Passwort vergessen?</mat-card-subtitle>
-            </div>
-        </mat-tab>
-
-        <mat-tab label="Registrieren">
-            <div class="example-container">
-                <mat-form-field>
-                    <input #firstName matInput placeholder="Vorname" required />
-                </mat-form-field>
-                <mat-form-field>
-                    <input #lastName matInput placeholder="Nachname" required />
-                </mat-form-field>
-                <mat-form-field>
-                    <input #emailReg matInput placeholder="Email" required />
-                </mat-form-field>
-                <mat-form-field>
-                    <input #passwordReg matInput placeholder="Passwort" required />
-                </mat-form-field>
-                <button mat-raised-button color="primary"
-                    (click)="registerUser(firstName.value, lastName.value, emailReg.value, passwordReg.value)">Registrieren</button>
-            </div>
-        </mat-tab>
-    </mat-tab-group>
-</mat-card> -->
 <div class="container">
     <div class="img">
         <!-- <img src="../../../assets/undraw_spreadsheet_69ax.svg"> -->
@@ -55,7 +12,6 @@
                 <mat-card-title>Willkommen 👋🏻</mat-card-title>
                 <mat-card-subtitle>Bitte registrieren oder loggen Sie sich ein.</mat-card-subtitle>
             </mat-card-header>
-
             <mat-tab-group animationDuration="0ms">
                 <mat-tab label="Login">
                     <div class="example-container">
@@ -63,13 +19,15 @@
                             <input type="email" #emailLog matInput placeholder="E-Mail" required />
                         </mat-form-field>
                         <mat-form-field>
-                            <input type="password" #passwordLog matInput placeholder="Passwort" required />
+                            <mat-label>Passwort</mat-label>
+                            <input #passwordLog matInput [type]="hide ? 'password' : 'text'" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
                         </mat-form-field>
-                        <button mat-raised-button color="primary"
+                        <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading"
                             (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
-                    </div>
-                    <div class="example-container2">
-                        <mat-card-subtitle class="forgot">Passwort vergessen?</mat-card-subtitle>
                     </div>
                 </mat-tab>
 
@@ -85,10 +43,16 @@
                             <input type="email" #emailReg matInput placeholder="Email" />
                         </mat-form-field>
                         <mat-form-field>
-                            <input type="password" #passwordReg matInput placeholder="Passwort" />
+                            <mat-label>Passwort</mat-label>
+                            <input #passwordLog matInput [type]="hide ? 'password' : 'text'" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
                         </mat-form-field>
-                        <button mat-raised-button color="primary"
-                            (click)="registerUser(firstName.value, lastName.value, emailReg.value, passwordReg.value)">Registrieren</button>
+                        <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading"
+                            (click)="registerUser(firstName.value, lastName.value, emailReg.value,
+                            passwordReg.value)">Registrieren</button>
                     </div>
                 </mat-tab>
             </mat-tab-group>
@@ -96,7 +60,6 @@
     </div>
     <img class="wave" src="../../../assets/wave.svg">
 </div>
-
 
 <div class="footer">
     <a href="https://www.dhbw-stuttgart.de/home/" target="_blank"><img class="dhbw" src="../../../assets/dhbw.svg"

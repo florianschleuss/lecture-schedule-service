@@ -8,6 +8,8 @@ import { UserService } from "../../../services/user.service";
   styleUrls: ["./dashboard.component.css"],
 })
 export class DashboardComponent implements OnInit {
+  hide = true;
+
   protected lectureCount: Number = 7;
 
   constructor(private userService: UserService) {}

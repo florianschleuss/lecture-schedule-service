@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>
+    Löschen
+</h1>
+<div mat-dialog-content>
+    <p>Sind Sie sich sicher, dass sie den Termin löschen wollen?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Zurück</button>
+    <button mat-raised-button color="primary" (click)="deleteDate(element['date-id'])">Löschen</button>
+</div>

@@ -29,6 +29,9 @@ import {
   ],
 })
 export class LoginComponent implements OnInit {
+  hide = true;
+  loading = false;
+
   message = "Ihr Benutzername und/oder Passwort stimmen nicht überein.";
 
   constructor(
@@ -46,6 +49,7 @@ export class LoginComponent implements OnInit {
     email: string,
     password: string
   ): void {
+    this.loading = true;
     this.apiService
       .addUser(firstName, lastName, email, password)
       .subscribe((data) => {
@@ -60,6 +64,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(email: string, password: string): void {
+    this.loading = true;
     this.apiService.authUser(email, password).subscribe((data) => {
       this.apiService.setAuthenticated(data["authenticated"]);
       if (data["admin"]) {
@@ -81,5 +86,9 @@ export class LoginComponent implements OnInit {
       panelClass: panelClass,
       duration: 10000,
     });
+  }
+
+  save(): void {
+    this.loading = true;
   }
 }

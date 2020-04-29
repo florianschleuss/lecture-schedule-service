@@ -1,8 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, NgForm } from "@angular/forms";
+import { MatDialog } from "@angular/material";
 
 import { ApiClientService } from "../../../services/api-client.service";
 import { UserService } from "../../../services/user.service";
+import { DialogEditComponent } from "../dates-table/dialog-edit/dialog-edit.component";
+import { DialogDeleteComponent } from "../dates-table/dialog-delete/dialog-delete.component";
 
 interface date {
   value: boolean;
@@ -31,7 +34,8 @@ export class DatesTableComponent implements OnInit {
   constructor(
     private userService: UserService,
     private _formBuilder: FormBuilder,
-    private apiService: ApiClientService
+    private apiService: ApiClientService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -88,5 +92,24 @@ export class DatesTableComponent implements OnInit {
           )
           .subscribe((data) => (this.dataSource = data));
       });
+  }
+
+  openDialogEdit(): void {
+    let dialogRef = this.dialog.open(DialogEditComponent, {
+      width: "250px",
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
+    });
+  }
+
+  openDialogDelete(): void {
+    let dialogRef = this.dialog.open(DialogDeleteComponent, {
+      width: "250px",
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
+    });
   }
 }

@@ -15,7 +15,7 @@ import { ThemeSwitcherComponent } from "../theme-switcher/theme-switcher.compone
   styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit {
-  mode = new FormControl("side"); //side, push and over modes
+  mode = new FormControl("over"); //side, push and over modes
 
   themeColor = "light-theme";
 

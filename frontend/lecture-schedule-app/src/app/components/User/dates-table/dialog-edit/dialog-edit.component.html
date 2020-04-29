@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Vorlesungstermin bearbeiten</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Datum einfügen</mat-label>
+        <input #date matInput [matDatepicker]="picker" placeholder="Prüfungstermin" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Uhrzeit</mat-label>
+        <mat-select #morning>
+            <mat-option *ngFor="let date of dates" [value]="date.value">
+                {{date.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Raum</mat-label>
+        <input #room matInput>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Zurück</button>
+    <button mat-button cdkFocusInitial>Speichern</button>
+</div>
