@@ -13,35 +13,126 @@
     </mat-card>
 
     <mat-card class="example-card div2">
+        <mat-card-header>
+            <mat-card-title>Kalender</mat-card-title>
+        </mat-card-header>
         <mat-card-content>
             <app-calendar></app-calendar>
         </mat-card-content>
     </mat-card>
 
-    <mat-card class="example-card div3">
-        <div class="title">
-            <h1 class="mat-display-1">Willkommen, <span>{{ firstName() }} {{ lastName() }}</span></h1>
+    <mat-card class="example-card div3 parent_user">
+        <div class="div1_user">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Willkommen, {{ firstName() }} {{ lastName() }}</mat-card-title>
+                <mat-card-subtitle>Registrierter User</mat-card-subtitle>
+            </mat-card-header>
+            <p class="mat-body-1 text">Dieser Vorlesungsplaner bietet Ihnen einen Überblick über das gesamte Semester an
+                der
+                DHBW Stuttgart. Sie
+                können Ihren Vorlesungen Einzeltermine hinzufügen, diese bei Bedarf modifizieren oder löschen. Um einer
+                Vorlesung einen Termin hinzuzufügen klicken Sie bitte auf die jeweilige angelegte Vorlesung. <br> <br>
+                Um eine neue Vorlesung anzulegen wenden Sie sich bitte an Ihren Administrator der DHBW Stuttgart.<br>
+                Bei technischen Probleme kontaktieren Sie Ihren Administrator.
+            </p>
+            <mat-card-actions class="buttonarea">
+                <button matTooltip="DHBW Homepage" mat-mini-fab color="primary">
+                    <a href="https://www.dhbw-stuttgart.de/home/" target="_blank">
+                        <mat-icon>account_balance</mat-icon>
+                    </a>
+                </button>
+                <button matTooltip="Sourcecode" mat-mini-fab color="primary">
+                    <a href="https://github.com/florianschleuss/lecture-schedule-service" target="_blank">
+                        <mat-icon>code</mat-icon>
+                    </a>
+                </button>
+                <button (click)="mailMe()" matTooltip="Hilfe" mat-mini-fab color="primary">
+                    <a [href]="mailText">
+                        <mat-icon>contact_support</mat-icon>
+                    </a>
+                </button>
+            </mat-card-actions>
         </div>
-        <!-- <img class="image" mat-card-image src="../../../assets/pic.png" alt="Bild"> -->
-        <div class="example-container">
-            <table class="rwd-table">
-                <tr>
-                    <td class="upper">Vorname</td>
-                    <td>{{ firstName() }}</td>
-                </tr>
-                <tr>
-                    <td class="upper">Nachname</td>
-                    <td>{{ lastName() }}</td>
-                </tr>
-                <tr>
-                    <td class="upper">Email</td>
-                    <td>{{ email() }}</td>
-                </tr>
-                <tr>
-                    <td class="upper">Passwort</td>
-                    <td>{{ password() }}</td>
-                </tr>
-            </table>
+        <div class="div_2user">
+            <mat-card-content>
+                <mat-card-header>
+                    <mat-card-title>Benutzerdaten</mat-card-title>
+                </mat-card-header>
+                <div class="example-container">
+                    <table class="rwd-table">
+                        <tr>
+                            <td class="upper">Vorname</td>
+                            <td>{{ firstName() }}</td>
+                        </tr>
+                        <tr>
+                            <td class="upper">Nachname</td>
+                            <td>{{ lastName() }}</td>
+                        </tr>
+                        <tr>
+                            <td class="upper">Email</td>
+                            <td>{{ email() }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </mat-card-content>
         </div>
     </mat-card>
 </div>
+
+
+
+
+<!-- <div class="title">
+    <h1 class="mat-display-1">Willkommen, <span>{{ firstName() }} {{ lastName() }}</span></h1>
+</div>
+<div class="example-container">
+    <table class="rwd-table">
+        <tr>
+            <td class="upper">Vorname</td>
+            <td>{{ firstName() }}</td>
+        </tr>
+        <tr>
+            <td class="upper">Nachname</td>
+            <td>{{ lastName() }}</td>
+        </tr>
+        <tr>
+            <td class="upper">Email</td>
+            <td>{{ email() }}</td>
+        </tr>
+        <tr>
+            <td class="upper">Passwort</td>
+            <td>{{ password() }}</td>
+        </tr>
+    </table>
+</div> -->
+
+
+<!-- <div class="div1_user title">
+    <h1 class="mat-display-3">Willkommen, <br>
+        <span>{{ firstName() }} {{ lastName() }}</span>
+    </h1>
+</div>
+<div class="div2_user">
+    <mat-card-title>Benutzerdaten</mat-card-title>
+    <mat-form-field class="field" appearance="outline">
+        <mat-label>Vorname</mat-label>
+        <input matInput placeholder="Vorname">
+    </mat-form-field>
+    <mat-form-field class="field" appearance="outline">
+        <mat-label>Nachname</mat-label>
+        <input matInput placeholder="Nachname">
+    </mat-form-field>
+    <mat-form-field class="field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email">
+    </mat-form-field>
+    <mat-form-field class="field" appearance="outline">
+        <mat-label>Passwort</mat-label>
+        <input #passwordLog matInput [type]="hide ? 'password' : 'text'" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+</div> -->

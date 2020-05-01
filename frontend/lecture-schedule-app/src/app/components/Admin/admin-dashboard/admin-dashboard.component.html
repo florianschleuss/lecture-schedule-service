@@ -61,20 +61,19 @@
                             <mat-datepicker #picker2></mat-datepicker>
                         </mat-form-field>
                         <div>
-                            <button mat-button matStepperPrevious>Zurück</button>
-                            <button mat-button matStepperNext>Weiter</button>
+                            <button mat-flat-button matStepperPrevious>Zurück</button>
+                            <button mat-flat-button matStepperNext>Weiter</button>
                         </div>
                     </form>
                 </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Fertig!</ng-template>
                     <div>
-                        <button mat-button matStepperPrevious>Zurück</button>
+                        <button mat-flat-button matStepperPrevious>Zurück</button>
                         <button
                             [disabled]="beginDate.value === '' || endDate.value === ''|| name.value === '' || user.value === '' || exam.value === '' || course.value === ''"
                             (click)='onSubmit(name.value, beginDate.value, endDate.value, user.value, course.value, exam.value); name.value = ""'
-                            type="submit" mat-mini-fab color="primary">
-                            <mat-icon>add</mat-icon>
+                            type="submit" mat-flat-button color="primary"> Hinzufügen
                         </button> </div>
                 </mat-step>
             </mat-vertical-stepper>

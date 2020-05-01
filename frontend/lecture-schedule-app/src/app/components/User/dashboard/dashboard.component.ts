@@ -8,6 +8,9 @@ import { UserService } from "../../../services/user.service";
   styleUrls: ["./dashboard.component.css"],
 })
 export class DashboardComponent implements OnInit {
+  name = "test";
+
+  mailText: string = "";
   hide = true;
 
   protected lectureCount: Number = 7;
@@ -18,7 +21,16 @@ export class DashboardComponent implements OnInit {
     return this.userService.getLectureCount();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.mailText =
+      "mailto:danielschworm@t-online.de,florian.schleuss@hpe.com,tobias.strauss@hpe.com?subject=Hilfe&body";
+  }
+
+  mailMe() {
+    this.mailText =
+      "mailto:danielschworm@t-online.de,florian.schleuss@hpe.com,tobias.strauss@hpe.com?subject=Hilfe&body";
+    window.location.href = this.mailText;
+  }
 
   firstName(): string {
     return this.userService.getUser()[0];

@@ -41,6 +41,7 @@ import {
 } from "@angular/material";
 import { DashboardComponent } from "./components/User/dashboard/dashboard.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { MatDividerModule } from "@angular/material/divider";
 import { CalendarComponent } from "./components/User/calendar/calendar.component";
 import { FormsComponent } from "./components/User/forms/forms.component";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -52,7 +53,8 @@ import { SnackbarComponent } from "./components/UI/snackbar/snackbar.component";
 import { AdminDashboardComponent } from "./components/Admin/admin-dashboard/admin-dashboard.component";
 import { UserTableComponent } from "./components/Admin/user-table/user-table.component";
 import { DialogEditComponent } from "./components/User/dates-table/dialog-edit/dialog-edit.component";
-import { DialogDeleteComponent } from './components/User/dates-table/dialog-delete/dialog-delete.component';
+import { DialogDeleteComponent } from "./components/User/dates-table/dialog-delete/dialog-delete.component";
+import { DialogLogoutComponent } from "./components/UI/navbar/dialog-logout/dialog-logout.component";
 
 @NgModule({
   declarations: [
@@ -70,6 +72,7 @@ import { DialogDeleteComponent } from './components/User/dates-table/dialog-dele
     UserTableComponent,
     DialogEditComponent,
     DialogDeleteComponent,
+    DialogLogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,6 +111,7 @@ import { DialogDeleteComponent } from './components/User/dates-table/dialog-dele
     MatSnackBarModule,
     MatExpansionModule,
     MatDialogModule,
+    MatDividerModule,
   ],
   providers: [ThemeSwitcherComponent],
   bootstrap: [AppComponent],

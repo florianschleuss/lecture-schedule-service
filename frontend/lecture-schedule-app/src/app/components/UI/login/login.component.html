@@ -15,10 +15,11 @@
             <mat-tab-group animationDuration="0ms">
                 <mat-tab label="Login">
                     <div class="example-container">
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <input type="email" #emailLog matInput placeholder="E-Mail" required />
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field (keyup.enter)="loginUser(emailLog.value, passwordLog.value)"
+                            appearance="outline">
                             <mat-label>Passwort</mat-label>
                             <input #passwordLog matInput [type]="hide ? 'password' : 'text'" required>
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
@@ -27,22 +28,23 @@
                             </button>
                         </mat-form-field>
                         <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading"
+                            [routerLink]="['dashboard']"
                             (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
                     </div>
                 </mat-tab>
 
                 <mat-tab label="Registrieren">
                     <div class="example-container">
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <input #firstName matInput placeholder="Vorname" />
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <input #lastName matInput placeholder="Nachname" />
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <input type="email" #emailReg matInput placeholder="Email" />
                         </mat-form-field>
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>Passwort</mat-label>
                             <input #passwordLog matInput [type]="hide ? 'password' : 'text'" required>
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
