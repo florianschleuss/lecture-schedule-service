@@ -15,7 +15,10 @@ import { ThemeSwitcherComponent } from "../theme-switcher/theme-switcher.compone
   styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit {
-  mode = new FormControl("over"); //side, push and over modes
+  name = "test";
+  mailText: string = "";
+
+  mode = new FormControl("side"); //side, push and over modes
 
   themeColor = "light-theme";
 
@@ -59,6 +62,14 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.setDefaultTheme();
+    this.mailText =
+      "mailto:danielschworm@t-online.de,florian.schleuss@hpe.com,tobias.strauss@hpe.com?subject=Hilfe&body";
+  }
+
+  mailMe() {
+    this.mailText =
+      "mailto:danielschworm@t-online.de,florian.schleuss@hpe.com,tobias.strauss@hpe.com?subject=Hilfe&body";
+    window.location.href = this.mailText;
   }
 
   logout(): void {
