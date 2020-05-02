@@ -6,6 +6,8 @@ import { DashboardComponent } from "./components/User/dashboard/dashboard.compon
 import { CalendarComponent } from "./components/User/calendar/calendar.component";
 import { FormsComponent } from "./components/User/forms/forms.component";
 import { AdminDashboardComponent } from "./components/Admin/admin-dashboard/admin-dashboard.component";
+import { UserCardComponent } from "./components/User/user-card/user-card.component";
+import { from } from "rxjs";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -13,6 +15,7 @@ const routes: Routes = [
   { path: "calendar", component: CalendarComponent },
   { path: "forms", component: FormsComponent },
   { path: "admin-dashboard", component: AdminDashboardComponent },
+  { path: "user", component: UserCardComponent },
   { path: "", redirectTo: "/login", pathMatch: "full" },
 ];
 

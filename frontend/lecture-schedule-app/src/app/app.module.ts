@@ -55,6 +55,7 @@ import { UserTableComponent } from "./components/Admin/user-table/user-table.com
 import { DialogEditComponent } from "./components/User/dates-table/dialog-edit/dialog-edit.component";
 import { DialogDeleteComponent } from "./components/User/dates-table/dialog-delete/dialog-delete.component";
 import { DialogLogoutComponent } from "./components/UI/navbar/dialog-logout/dialog-logout.component";
+import { UserCardComponent } from "./components/User/user-card/user-card.component";
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { DialogLogoutComponent } from "./components/UI/navbar/dialog-logout/dial
     DialogEditComponent,
     DialogDeleteComponent,
     DialogLogoutComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,
