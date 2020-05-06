@@ -56,8 +56,36 @@ Response:
 404 Not found
 ```
 
-### /users/{user-id}/lectures [GET, POST]
+### /users/{user-id}/calendar [GET]
 
+GET
+```json
+Response:
+{
+    "semester-start": "12/03/2020",
+    "semseter-end": "13/03/2020",
+    "dates": [[
+        {
+            "lectrue": "Vorlesung2",
+            "room": "R320"
+        },
+        {
+            "lectrue": "-",
+            "room": ""
+        }],[{
+            "lectrue": "Vorlesung3",
+            "room": "R120"
+        },
+        {
+            "lectrue": "Vorlesung1",
+            "room": "R534"
+        }]]
+}, 200 OK
+
+404 Not found
+```
+
+### /users/{user-id}/lectures [GET, POST]
 
 GET
 ```json
@@ -127,7 +155,37 @@ Response:
 404 Not found
 ```
 
-### /users/{user-id}/lectures/{lecture-id}/dates [POST]
+### /users/{user-id}/lectures/{lecture-id}/dates [GET, POST]
+
+GET
+```json
+Response:
+[
+    {
+        "date-id": "abc1234567890",
+        "date": "12-04-2020",
+        "morning": false,
+        "room": "R320"
+    },
+    {
+        "date-id": "abc1234567890",
+        "date": "18-04-2020",
+        "morning": false,
+        "room": "R320"
+    },
+], 200 OK
+
+If no date is present
+
+[
+    {
+        "date-id": "00000000000",
+        "date": "nicht Vorhanden",
+        "morning": false,
+        "room": ""
+    }
+], 200 OK
+```
 
 POST
 ```json
@@ -176,7 +234,6 @@ Response:
 
 DELETE
 ```json
-
 Response:
 200 OK
 
