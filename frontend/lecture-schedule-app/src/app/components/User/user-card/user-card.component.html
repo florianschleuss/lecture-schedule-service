@@ -1,0 +1,34 @@
+<div class="container">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Willkommen, {{ firstName() }} {{ lastName() }}</mat-card-title>
+            <mat-card-subtitle>Registrierter User</mat-card-subtitle>
+        </mat-card-header>
+        <p class="mat-body-1 text">Dieser Vorlesungsplaner bietet Ihnen einen Überblick über das gesamte Semester an
+            der
+            DHBW Stuttgart. Sie
+            können Ihren Vorlesungen Einzeltermine hinzufügen, diese bei Bedarf modifizieren oder löschen. Um einer
+            Vorlesung einen Termin hinzuzufügen klicken Sie bitte auf die jeweilige angelegte Vorlesung. <br> <br>
+            Um eine neue Vorlesung anzulegen wenden Sie sich bitte an Ihren Administrator der DHBW Stuttgart.<br>
+            Bei technischen Probleme kontaktieren Sie Ihren Administrator.
+        </p>
+        <mat-card-actions class="buttonarea">
+            <button matTooltip="DHBW Homepage" mat-mini-fab color="primary">
+                <a href="https://www.dhbw-stuttgart.de/home/" target="_blank">
+                    <mat-icon>account_balance</mat-icon>
+                </a>
+            </button>
+            <button matTooltip="Sourcecode" mat-mini-fab color="primary">
+                <a href="https://github.com/florianschleuss/lecture-schedule-service" target="_blank">
+                    <mat-icon>code</mat-icon>
+                </a>
+            </button>
+            <button (click)="mailMe()" matTooltip="Hilfe" mat-mini-fab color="primary">
+                <a [href]="mailText">
+                    <mat-icon>contact_support</mat-icon>
+                </a>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,11 @@
+.full-calendar {
+    margin: 2rem;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .full-calendar {
+        margin: 2rem;
+        width: auto;
+        height: 100%;
+    }
+}

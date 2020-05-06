@@ -1,0 +1,43 @@
+.full-width {
+    width: 100%;
+}
+
+.card {
+    min-width: 120px;
+    margin: 20px;
+}
+
+.mat-radio-button {
+    display: block;
+    margin: 5px 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.col:last-child {
+    margin-right: 0;
+}
+
+.mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.float {
+    float: right;
+}
+
+.wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 80%;
+    z-index: -1000;
+}
