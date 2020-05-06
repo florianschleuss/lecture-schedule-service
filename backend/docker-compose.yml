@@ -1,0 +1,21 @@
+version: '3'
+services:
+  # API service with all controller-logic
+  api:
+    container_name: api
+    build: ./api
+    depends_on:
+        - mongo-db
+    volumes:
+      - ./api:/usr/src/api
+    ports:
+      - "3010:80"
+
+  # Database service
+  mongo-db:
+    image: andresvidal/rpi3-mongodb3:latest
+    container_name: mongo-db
+    volumes:
+      - ./mongo-db:/data/db
+    ports: 
+      - '27017-27019:27017-27019'
