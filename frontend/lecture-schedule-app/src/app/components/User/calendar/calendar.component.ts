@@ -10,7 +10,7 @@ import { UserService } from "../../../services/user.service";
   styleUrls: ["./calendar.component.css"],
 })
 export class CalendarComponent implements OnInit {
-  calendarPlugins = [dayGridPlugin]; // important!
+  calendarPlugins = [dayGridPlugin];
 
   protected calendarEvents: Array<Object> = [];
 

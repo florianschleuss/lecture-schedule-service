@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./theme-switcher.component.css"],
 })
 export class ThemeSwitcherComponent implements OnInit {
-  // let's define default theme
+  // default theme
   themeColor = "light-theme";
 
   constructor() {}

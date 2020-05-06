@@ -1,11 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PageEvent } from "@angular/material/paginator";
 import { Router } from "@angular/router";
-import {
-  BreakpointObserver,
-  Breakpoints,
-  BreakpointState,
-} from "@angular/cdk/layout";
 
 import { ApiClientService } from "../../../services/api-client.service";
 import { UserService } from "../../../services/user.service";
@@ -28,15 +22,8 @@ export class LectureTableComponent {
   constructor(
     private apiService: ApiClientService,
     private userService: UserService,
-    private router: Router,
-    breakpointObserver: BreakpointObserver
-  ) {
-    // breakpointObserver.observe(["(max-width: 600px)"]).subscribe((result) => {
-    //   this.columnsToDisplay = result.matches
-    //     ? ["name", "course"]
-    //     : ["name", "course", "exam", "start", "end"];
-    // });
-  }
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.apiService

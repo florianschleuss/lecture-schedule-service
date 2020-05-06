@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { NavbarComponent } from "./components/UI/navbar/navbar.component";
-import { FormControl, Validators } from "@angular/forms";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { LayoutModule } from "@angular/cdk/layout";

@@ -31,7 +31,6 @@ export class FormsComponent implements OnInit {
   protected course: string = "";
   protected exam: string = "";
   private lectureId: string;
-  //protected examDate: string = '12/5/2021'
 
   lectureForm = this.fb.group({
     lecture: [null, Validators.required],

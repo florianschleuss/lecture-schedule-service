@@ -109,22 +109,3 @@ html, body {
     background: #7E8A91;
     text-shadow: none;
 }
-
-/* ::selection {
-    background: #7E8A91;
-    text-shadow: none;
-}
-
-::-webkit-scrollbar {
-    width: 2px;
-}
-
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #D32F2F;
-    border-radius: 10px;
-} */
