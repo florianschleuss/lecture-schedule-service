@@ -94,22 +94,30 @@ export class DatesTableComponent implements OnInit {
       });
   }
 
-  openDialogEdit(): void {
+  openDialogEdit(dateId: string): void {
+    this.userService.setDateId(dateId);
     let dialogRef = this.dialog.open(DialogEditComponent, {
       width: "250px",
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("The dialog was closed");
+      this.apiService
+        .getDates(this.userService.getUserId(), this.userService.getLectureId())
+        .subscribe((data) => (this.dataSource = data));
     });
   }
 
-  openDialogDelete(): void {
+  openDialogDelete(dateId: string): void {
+    this.userService.setDateId(dateId);
     let dialogRef = this.dialog.open(DialogDeleteComponent, {
       width: "250px",
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log("The dialog was closed");
+      this.apiService
+        .getDates(this.userService.getUserId(), this.userService.getLectureId())
+        .subscribe((data) => (this.dataSource = data));
     });
   }
 }

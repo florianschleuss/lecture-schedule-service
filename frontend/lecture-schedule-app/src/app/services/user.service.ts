@@ -7,6 +7,7 @@ import { ApiClientService } from "./api-client.service";
 })
 export class UserService {
   private lectureId: string;
+  private dateId: string;
   private userId: string;
   private firstName: string = "Vorname";
   private lastName: string = "Nachname";
@@ -41,6 +42,14 @@ export class UserService {
 
   getLectureId(): string {
     return this.lectureId;
+  }
+
+  setDateId(dateId: string): void {
+    this.dateId = dateId;
+  }
+
+  getDateId(): string {
+    return this.dateId;
   }
 
   getLectureCount(): number {

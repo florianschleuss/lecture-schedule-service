@@ -16,6 +16,7 @@
                 <mat-tab label="Login">
                     <div class="example-container">
                         <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
                             <input type="email" #emailLog matInput placeholder="E-Mail" required />
                         </mat-form-field>
                         <mat-form-field (keyup.enter)="loginUser(emailLog.value, passwordLog.value)"
@@ -42,7 +43,8 @@
                             <input #lastName matInput placeholder="Nachname" />
                         </mat-form-field>
                         <mat-form-field appearance="outline">
-                            <input type="email" #emailReg matInput placeholder="Email" />
+                            <mat-label>Email</mat-label>
+                            <input type="email" #emailReg matInput placeholder="Email" required />
                         </mat-form-field>
                         <mat-form-field appearance="outline">
                             <mat-label>Passwort</mat-label>

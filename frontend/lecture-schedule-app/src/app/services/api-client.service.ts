@@ -128,6 +128,18 @@ export class ApiClientService {
     );
   }
 
+  getDate(userId: string, lectureId: string, dateId: string): Observable<JSON> {
+    return this.http.get<JSON>(
+      this.baseUrl
+        .concat("/users/")
+        .concat(userId)
+        .concat("/lectures/")
+        .concat(lectureId)
+        .concat("/dates/")
+        .concat(dateId)
+    );
+  }
+
   addDate(
     userId: string,
     lectureId: string,

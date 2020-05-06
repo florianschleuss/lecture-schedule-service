@@ -25,20 +25,13 @@ export class DialogDeleteComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  deleteDate(dateId: string) {
+  deleteDate() {
     this.apiService
       .remDate(
         this.userService.getUserId(),
         this.userService.getLectureId(),
-        dateId
+        this.userService.getDateId()
       )
-      .subscribe((data) => {
-        this.apiService
-          .getDates(
-            this.userService.getUserId(),
-            this.userService.getLectureId()
-          )
-          .subscribe((data) => (this.dataSource = data));
-      });
+      .subscribe(() => this.dialogRef.close());
   }
 }
