@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="img">
+        <img src="../../../assets/bd.svg">
+    </div>
+    <div class="login-content">
+        <mat-card @fadeIn class="align-center">
+            <mat-card-header>
+                <mat-card-title>Willkommen 👋🏻</mat-card-title>
+                <mat-card-subtitle>Bitte registrieren oder loggen Sie sich ein.</mat-card-subtitle>
+            </mat-card-header>
+            <mat-tab-group animationDuration="0ms">
+                <mat-tab label="Login">
+                    <div class="example-container">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="email" #emailLog matInput placeholder="E-Mail" required />
+                        </mat-form-field>
+                        <mat-form-field (keyup.enter)="loginUser(emailLog.value, passwordLog.value)"
+                            appearance="outline">
+                            <mat-label>Passwort</mat-label>
+                            <input #passwordLog matInput [type]="hide ? 'password' : 'text'" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading"
+                            [routerLink]="['dashboard']"
+                            (click)="loginUser(emailLog.value, passwordLog.value)">Login</button>
+                    </div>
+                </mat-tab>
+
+                <mat-tab label="Registrieren">
+                    <div class="example-container">
+                        <mat-form-field appearance="outline">
+                            <input #firstName matInput placeholder="Vorname" />
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <input #lastName matInput placeholder="Nachname" />
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="email" #emailReg matInput placeholder="Email" required />
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Passwort</mat-label>
+                            <input #passwordLog matInput [type]="hide ? 'password' : 'text'" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading"
+                            (click)="registerUser(firstName.value, lastName.value, emailReg.value,
+                            passwordReg.value)">Registrieren</button>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card>
+    </div>
+    <img class="wave" src="../../../assets/wave.svg">
+</div>
+
+<div class="footer">
+    <a href="https://www.dhbw-stuttgart.de/home/" target="_blank"><img class="dhbw" src="../../../assets/dhbw.svg"
+            alt=""></a>
+    <p>&copy; 2020 | Schworm • Schleuss • Strauss</p>
+</div>

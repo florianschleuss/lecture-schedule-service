@@ -1,0 +1,25 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.unselectable {
+    user-select: none;
+}
+
+.bottom {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+}
+
+.mat-divider {
+    display: block;
+    margin: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+.buttonarea a {
+    text-decoration: none;
+    color: inherit;
+}
