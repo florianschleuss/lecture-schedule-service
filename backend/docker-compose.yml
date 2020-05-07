@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 services:
   # API service with all controller-logic
   api:
     container_name: api
     build: ./api
     depends_on:
-        - mongo-db
+      - mongo-db
     volumes:
       - ./api:/usr/src/api
     ports:
@@ -17,5 +17,5 @@ services:
     container_name: mongo-db
     volumes:
       - ./mongo-db:/data/db
-    ports: 
-      - '27017-27019:27017-27019'
+    ports:
+      - "27017-27019:27017-27019"

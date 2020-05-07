@@ -1,22 +1,28 @@
-# Title ![Latest Stable Version](https://img.shields.io/github/v/release/florianschleuss/lecture-schedule-service) ![Repository Size](https://img.shields.io/github/repo-size/florianschleuss/lecture-schedule-service) ![License](https://img.shields.io/github/license/florianschleuss/lecture-schedule-service)
+# Lecture Schedule Service ![Latest Stable Version](https://img.shields.io/github/v/release/florianschleuss/lecture-schedule-service) ![Repository Size](https://img.shields.io/github/repo-size/florianschleuss/lecture-schedule-service) ![License](https://img.shields.io/github/license/florianschleuss/lecture-schedule-service)
+
+![Thumbnail](./login.png)
+![Thumbnail](./dashboard.png)
 
 #### Table of Contents
+
 1. [Basic Instruction](#basic-instruction)
 2. [Installation / Run](#installation-/-run)
 3. [License](#license)
 
 ## Basic Instruction
+
 This project shows a prototype of a lecture plan management tool. The project is divided into frontend and backend. The frontend is written in Angular and Typescript and designed with a huge focus on responsiveness. The backend is designed with scalability and light weight in mind. MongoDB was used as database, the API is written in Python and the whole backend is built as a docker container architecture.
 
 ## Installation / Run
 
 ### Frontend
 
+You can find further instructions at the [README](./frontend/README.md) in the frontend.
 Make sure that node.js and npm are installed in the latest version.
 Start the Angular project in the './frontend/lecture-schedule-app' directory:
 
 ```bash
-npm run serve
+ng serve
 ```
 
 ### Backend
@@ -37,6 +43,7 @@ $ sudo docker exec -it mongo-db bash
 
 > db.createUser({ user: "florian", pwd: "password", roles: [{ role: "dbOwner", db: "lecture" }] })
 ```
+
 After that the database is ready for use, but completely empty.
 
 Finally the API must be started:
@@ -46,4 +53,5 @@ $ sudo docker-compose up
 ```
 
 ## License
+
 The Repository is licensed under the terms of the [GPL Open Source](LICENSE) license and is available for free.
