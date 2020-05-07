@@ -1,7 +1,7 @@
 # Lecture Schedule Service ![Latest Stable Version](https://img.shields.io/github/v/release/florianschleuss/lecture-schedule-service) ![Repository Size](https://img.shields.io/github/repo-size/florianschleuss/lecture-schedule-service) ![License](https://img.shields.io/github/license/florianschleuss/lecture-schedule-service)
 
-![Thumbnail](./login.png)
-![Thumbnail](./dashboard.png)
+![Thumbnail](./login_thumb.png)
+![Thumbnail](./dashboard_thumb.png)
 
 #### Table of Contents
 
